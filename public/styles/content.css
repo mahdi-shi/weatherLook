@@ -18,10 +18,10 @@
 }
 
 .con .introductionPage .intro {
-    transform: translate(0%, 170px);
+    transform: translate(8%, 170px);
     animation-name: showedIntro;
     animation-delay: 1s;
-    animation-duration: 1.2s;
+    animation-duration: 7.5s;
     animation-fill-mode: forwards;
     animation-timing-function: ease-out;
     opacity: 0;
@@ -29,34 +29,91 @@
 
 @keyframes showedIntro {
     0% {
-        
+
         opacity: 0;
     }
-    20%{
-        opacity: 1;
-    }
-    70% {
-        transform: translate(0%, 170px);
+
+    4% {
         opacity: 1;
     }
 
-    100% {
-        transform: translate(0%, 100px);
+    20% {
+        transform: translate(8%, 170px);
         opacity: 1;
+    }
+
+    28% {
+        transform: translate(8%, 100px);
+        opacity: 1;
+    }
+
+    40% {
+        transform: translate(-2%, 100px);
+        opacity: 1;
+    }
+    97%{
+        transform: translate(-2%, 100px);
+        opacity: 1;
+    }
+    100%{
+        transform: translate(-2%, 70px);
+        opacity: 0;
     }
 }
 
+@keyframes logoRotate {
+    0% {
+        transform: rotate(0deg)translateY(-10px);
+        width: 42px;
+    }
+
+    30% {
+        width: 42px;
+    }
+
+    70% {
+        width: 32px;
+    }
+
+    100% {
+        transform: rotate(180deg)translateY(10px);
+        width: 42px;
+    }
+}
+
+@keyframes fadeLogoText {
+    0% {
+        width: 0;
+    }
+
+    100% {
+        width: 220px;
+    }
+
+}
+
 .con .introductionPage .intro svg {
-    transform: translateY(-10px);
+    transform: translate(0px, -10px);
+    animation-name: logoRotate;
+    animation-delay: 4s;
+    animation-duration: .3s;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
+    animation-timing-function: linear;
 }
 
 .con .introductionPage .intro h2 {
     color: #EAEAEA;
     display: inline-block;
     font-family: cursive;
+    transform: translate(0px, 14px);
     font-size: 2.3em;
     margin-left: 4px;
-    background-color: red;
     width: 0px;
     overflow: hidden;
+    animation-name: fadeLogoText;
+    animation-delay: 5s;
+    animation-duration: .8s;
+    animation-timing-function: steps(9);
+    animation-fill-mode: forwards;
 }
