@@ -1,0 +1,15 @@
+*{
+    box-sizing: border-box;
+    font-family: sans-serif;
+    padding: 0;
+    margin: 0;
+}
+.con{
+    background-color: rgb(116, 161, 180);
+    height: 100%;
+}
+.con .introductionPage{
+    width: 101.9%;
+    height: 100%;
+    background-color: #D6E4E5;
+}
