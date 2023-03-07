@@ -10,6 +10,8 @@
     height: 100%;
 }
 
+/* styling the introduction page */
+
 .con .introductionPage {
     width: 101.9%;
     height: 100%;
@@ -51,11 +53,13 @@
         transform: translate(-2%, 100px);
         opacity: 1;
     }
-    97%{
+
+    97% {
         transform: translate(-2%, 100px);
         opacity: 1;
     }
-    100%{
+
+    100% {
         transform: translate(-2%, 70px);
         opacity: 0;
     }
@@ -116,4 +120,107 @@
     animation-duration: .8s;
     animation-timing-function: steps(9);
     animation-fill-mode: forwards;
+}
+
+.con .introductionPage .introLocSelector {
+    transform: translate(20%, 10px);
+    animation-name: showIntoSearch;
+    animation-delay: 8.5s;
+    animation-duration: .7s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-out;
+    position: relative;
+    top: 0px;
+    opacity: 0;
+}
+
+@keyframes showIntoSearch {
+    0% {
+        top: 0px;
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+        top: -60px;
+    }
+}
+
+@media only screen and (min-width: 700px) {
+    .con .introductionPage .introLocSelector {
+        transform: translate(25%, 10px);
+        opacity: 0;
+    }
+}
+
+@media only screen and (min-width: 900px) {
+    .con .introductionPage .introLocSelector {
+        transform: translate(31%, 10px);
+        opacity: 0;
+    }
+}
+
+@media only screen and (min-width: 1100px) {
+    .con .introductionPage .introLocSelector {
+        transform: translate(37%, 10px);
+        opacity: 0;
+    }
+}
+
+.con .introductionPage .introLocSelector .inputBox {
+    position: relative;
+    width: 290px;
+}
+
+.con .introductionPage .introLocSelector .inputBox input {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    background-color: #292e3d;
+    border-radius: 6px;
+    color: #fff;
+    font-size: 1em;
+    outline: none;
+    transition: 0.4s;
+}
+
+.con .introductionPage .introLocSelector .inputBox span {
+    position: absolute;
+    left: 0;
+    padding: 10px;
+    pointer-events: none;
+    font-size: 1em;
+    color: rgba(255, 255, 255, 0.3);
+    text-transform: uppercase;
+    transition: 0.4s;
+}
+
+.con .introductionPage .introLocSelector .inputBox input:valid~span,
+.con .introductionPage .introLocSelector .inputBox input:focus~span {
+    color: #EAEAEA;
+    transform: translate(20px, -7px);
+    font-size: 0.65em;
+    padding: 0px 10px;
+    background-color: #292e3d;
+    border-left: 2px solid #EAEAEA;
+    border-right: 2px solid #EAEAEA;
+    letter-spacing: 0.2em;
+}
+
+.con .introductionPage .introLocSelector .inputBox input:valid,
+.con .introductionPage .introLocSelector .inputBox input:focus {
+    border: 2px solid #EAEAEA;
+}
+
+.con .introductionPage .introLocSelector .inputBox #locSearch {
+    position: absolute;
+    left: 89%;
+    top: 24%;
+    cursor: pointer;
+    transition: .5s;
+}
+
+.con .introductionPage .introLocSelector .inputBox input:valid ~ #locSearch,
+.con .introductionPage .introLocSelector .inputBox input:focus ~ #locSearch {
+    fill: #EAEAEA;
 }
