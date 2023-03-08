@@ -215,7 +215,7 @@
 .con .introductionPage .introLocSelector .inputBox #locSearch {
     position: absolute;
     left: 89%;
-    top: 24%;
+    top: 18%;
     cursor: pointer;
     transition: .5s;
 }
