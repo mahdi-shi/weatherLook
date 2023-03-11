@@ -1,9 +1,12 @@
 const express = require('express');
-const app = express();
 const axios = require("axios").default;;
+const cors = require('cors')
+const app = express();
 
 app.listen(3000,()=>console.log('listen at 3000'));
 app.use(express.static('public'));
+app.use(cors());
+
 
 app.get("/weather/:latlon", async (req, res) => {
     console.log("fetch test");
