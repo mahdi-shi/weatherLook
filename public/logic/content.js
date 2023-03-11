@@ -15,15 +15,42 @@ document.querySelector("#getLocationText").addEventListener("click", async () =>
             Lat = position.coords.latitude;
             Lng = position.coords.longitude;
 
-            console.log(Lat,Lng);
+            console.log(Lat, Lng);
 
             const Response = await axios(`/weather/${Lat},${Lng}`);
-            const wData = await Response.data.weather;
+            const waData = await Response.data.weather;
 
-            console.log(wData);
+
+            const forcastWeatherUrl = waData.properties.forecast;
+
+            const aqData = await Response.data.air_quality;
+
+            console.log(aqData);
+
+            const aqParameters = aqData.results[0].measurements[0].parameter;
+            const aqValue = aqData.results[0].measurements[0].value;
+            const aqLastUpdated = aqData.results[0].measurements[0].lastUpdated;
+            const aqUnit = aqData.results[0].measurements[0].unit;
+
+            const forcastResponse = await axios.get(forcastWeatherUrl);
+            const dataForcast = await forcastResponse.data;
+
+            console.log(dataForcast);
         });
     }
     else {
-        console.log("uh my ass")
+        console.log("geolocation is not responging")
     }
+})
+
+// showing data with search
+
+const locSearchBtn = document.querySelector("#locSearch");
+const locationNameInput = document.querySelector("#locationName");
+
+locSearchBtn.addEventListener("click",async() =>{
+    const wResponse = await fetch(`https://api.weatherapi.com/v1/forecast.json?key=7f4183b49af04a2e95e120051231103&q=${locationNameInput.value}`)
+    const wData = await wResponse.json();
+
+    console.log(wData);
 })
