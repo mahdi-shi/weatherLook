@@ -1,5 +1,3 @@
-//base data for geolocate
-
 document.querySelector("#getLocationText").addEventListener("click", async () => {
 
     //let response = await fetch("https://geo.ipify.org/api/v2/country,city?apiKey=at_SzNblVsGgWDZd6RMGXGmgxVdK6ZPw&ipAddress=8.8.8.8");
@@ -10,20 +8,20 @@ document.querySelector("#getLocationText").addEventListener("click", async () =>
         let Lat;
         let Lng;
 
-        const watchID = navigator.geolocation.watchPosition(async position => {
+        navigator.geolocation.watchPosition(async position => {
             console.log(position.coords.latitude, position.coords.longitude);
             Lat = position.coords.latitude;
             Lng = position.coords.longitude;
 
             console.log(Lat, Lng);
 
-            const Response = await axios(`/weather/${Lat},${Lng}`);
-            const waData = await Response.data.weather;
+            const response = await axios.get(`/weather/${Lat},${Lng}`)
+            const waData = await response.data.weather;
 
 
             const forcastWeatherUrl = waData.properties.forecast;
 
-            const aqData = await Response.data.air_quality;
+            const aqData = await response.data.air_quality;
 
             console.log(aqData);
 
@@ -55,7 +53,6 @@ locSearchBtn.addEventListener("click", async () => {
     console.log(wData);
 })
 locationNameInput.addEventListener('keydown',async (event) => {
-    let name = event.key;
     let code = event.code;
 
     if (code == "Enter") {
