@@ -25,9 +25,6 @@ app.get("/weather/:latlon", async (req, res) => {
         .catch(err => console.error("something went wrong " + err));
     const aqData = await aqResponse.data;
 
-    console.log(aqData);
-
-
     const data = {
         weather: weatherData,
         air_quality: aqData

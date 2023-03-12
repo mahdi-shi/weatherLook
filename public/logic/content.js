@@ -48,9 +48,20 @@ document.querySelector("#getLocationText").addEventListener("click", async () =>
 const locSearchBtn = document.querySelector("#locSearch");
 const locationNameInput = document.querySelector("#locationName");
 
-locSearchBtn.addEventListener("click",async() =>{
+locSearchBtn.addEventListener("click", async () => {
     const wResponse = await fetch(`https://api.weatherapi.com/v1/forecast.json?key=7f4183b49af04a2e95e120051231103&q=${locationNameInput.value}`)
     const wData = await wResponse.json();
-
+    console.log("hello")
     console.log(wData);
 })
+locationNameInput.addEventListener('keydown',async (event) => {
+    let name = event.key;
+    let code = event.code;
+
+    if (code == "Enter") {
+        const wResponse = await fetch(`https://api.weatherapi.com/v1/forecast.json?key=7f4183b49af04a2e95e120051231103&q=${locationNameInput.value}`)
+        const wData = await wResponse.json();
+
+        console.log(wData);
+    }
+}, false);
