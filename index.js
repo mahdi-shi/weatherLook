@@ -38,7 +38,6 @@ app.use((_req, res, next) => {
   );
 
 
-
 app.get("/weather/:latlon", async (req, res) => {
     console.log("fetch test");
     const latlong = req.params.latlon.split(",");
