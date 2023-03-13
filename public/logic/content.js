@@ -15,9 +15,14 @@ document.querySelector("#getLocationText").addEventListener("click", async () =>
 
             console.log(Lat, Lng);
 
-            const response = await axios.get(`/weather/${Lat},${Lng}`)
-            const waData = await response.data.weather;
+            const response = await fetch(`/weather/${Lat},${Lng}`)
+            
+            console.log(response);
+            
+            const waData = response.Data.weatherData;
 
+            console.log(waData);
+           /* 
 
             const forcastWeatherUrl = waData.properties.forecast;
 
@@ -33,7 +38,7 @@ document.querySelector("#getLocationText").addEventListener("click", async () =>
             const forcastResponse = await axios.get(forcastWeatherUrl);
             const dataForcast = await forcastResponse.data;
 
-            console.log(dataForcast);
+            console.log(dataForcast);*/
         });
     }
     else {
@@ -52,7 +57,7 @@ locSearchBtn.addEventListener("click", async () => {
     console.log("hello")
     console.log(wData);
 })
-locationNameInput.addEventListener('keydown',async (event) => {
+locationNameInput.addEventListener('keydown', async (event) => {
     let code = event.code;
 
     if (code == "Enter") {
