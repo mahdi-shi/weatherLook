@@ -24,19 +24,20 @@ app.get("/weather/:latlon", async (req, res) => {
   const Lat = latlong[0];
   const Long = latlong[1];
 
-  const weatherResponse = await fetch(`https://api.weatherapi.com/v1/forecast.json?key=7f4183b49af04a2e95e120051231103&q=${Lat},${Long}`);
+  const weatherResponse = await fetch(`https://api.weatherapi.com/v1/forecast.json?key=7f4183b49af04a2e95e120051231103&q=${Lat},${Long}`)
+    .catch(err => console.error("something went wrongoooooooo" + err));
   const weatherData = await weatherResponse.json();
 
-  console.log(weatherResponse);
+  console.log(weatherData);
 
-  const aqResponse = await fetch(`https://api.openaq.org/v2/latest?coordinates=${Lat},${Long}`)
+  const aqResponse = await fetch(`https://api.openaq.org/v2/latest?limit=200&page=1&offset=2&sort=desc&coordinates=${Lat}%2C${Long}&radius=1000&order_by=lastUpdated&dumpRaw=false`)
     .catch(err => console.error("something went wrongoooooooo " + err));
   const aqData = await aqResponse.json();
 
-  const Data = {
+  const DataS = {
     weather: weatherData,
     air_quality: aqData
   }
 
-  res.send(Data)
+  res.json(DataS)
 })

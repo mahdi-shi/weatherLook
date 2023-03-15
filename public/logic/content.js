@@ -13,15 +13,10 @@ document.querySelector("#getLocationText").addEventListener("click", async () =>
             Lat = position.coords.latitude;
             Lng = position.coords.longitude;
 
-            console.log(Lat, Lng);
-
             const response = await fetch(`/weather/${Lat},${Lng}`)
-            
-            console.log(response);
-            
-            const waData = response.Data.weatherData;
+            const wData = await response.json();
 
-            console.log(waData);
+            console.log(wData.weather);
            /* 
 
             const forcastWeatherUrl = waData.properties.forecast;
