@@ -1,7 +1,6 @@
-document.querySelector("#getLocationText").addEventListener("click", async () => {
+const introductionPage = document.querySelector(".introductionPage");
 
-    //let response = await fetch("https://geo.ipify.org/api/v2/country,city?apiKey=at_SzNblVsGgWDZd6RMGXGmgxVdK6ZPw&ipAddress=8.8.8.8");
-    //let Tdata = await response.json();
+document.querySelector("#getLocationText").addEventListener("click", async () => {
 
     if ("geolocation" in navigator) {
 
@@ -16,24 +15,8 @@ document.querySelector("#getLocationText").addEventListener("click", async () =>
             const response = await fetch(`/weather/${Lat},${Lng}`)
             const wData = await response.json();
 
-            console.log(wData.weather);
-           /* 
+            console.log(wData.DataS.weather);
 
-            const forcastWeatherUrl = waData.properties.forecast;
-
-            const aqData = await response.data.air_quality;
-
-            console.log(aqData);
-
-            const aqParameters = aqData.results[0].measurements[0].parameter;
-            const aqValue = aqData.results[0].measurements[0].value;
-            const aqLastUpdated = aqData.results[0].measurements[0].lastUpdated;
-            const aqUnit = aqData.results[0].measurements[0].unit;
-
-            const forcastResponse = await axios.get(forcastWeatherUrl);
-            const dataForcast = await forcastResponse.data;
-
-            console.log(dataForcast);*/
         });
     }
     else {
@@ -51,6 +34,7 @@ locSearchBtn.addEventListener("click", async () => {
     const wData = await wResponse.json();
     console.log("hello")
     console.log(wData);
+    introductionPage.classList.add("fadeOutIntroductionPage")
 })
 locationNameInput.addEventListener('keydown', async (event) => {
     let code = event.code;
@@ -60,5 +44,6 @@ locationNameInput.addEventListener('keydown', async (event) => {
         const wData = await wResponse.json();
 
         console.log(wData);
+        introductionPage.classList.add("fadeOutIntroductionPage")
     }
 }, false);

@@ -8,15 +8,22 @@
 .con {
     background-color: rgb(116, 161, 180);
     height: 100%;
+    overflow-x: hidden;
 }
 
 /* styling the introduction page */
 
 .con .introductionPage {
-    width: 101.9%;
+    width: 106.9%;
     height: 100%;
     background-color: #292e3d;
     overflow: hidden;
+}
+
+.fadeOutIntroductionPage{
+    opacity: 0;
+    transition: 0.3s;
+    transform: translateY(-200px);
 }
 
 .con .introductionPage .intro {
