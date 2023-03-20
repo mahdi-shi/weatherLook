@@ -3,7 +3,6 @@ const introductionPage = document.querySelector(".introductionPage");
 document.querySelector("#getLocationText").addEventListener("click", async () => {
 
     if ("geolocation" in navigator) {
-
         let Lat;
         let Lng;
 
@@ -15,8 +14,9 @@ document.querySelector("#getLocationText").addEventListener("click", async () =>
             const response = await fetch(`/weather/${Lat},${Lng}`)
             const wData = await response.json();
 
-            console.log(wData.DataS.weather);
+            console.log(wData.weather);
 
+            introductionPage.classList.add("fadeOutIntroductionPage")
         });
     }
     else {
@@ -28,6 +28,8 @@ document.querySelector("#getLocationText").addEventListener("click", async () =>
 
 const locSearchBtn = document.querySelector("#locSearch");
 const locationNameInput = document.querySelector("#locationName");
+const locSearchBtn2 = document.querySelector("#locSearch2");
+const locationNameInput2 = document.querySelector("#locationName2");
 
 locSearchBtn.addEventListener("click", async () => {
     const wResponse = await fetch(`https://api.weatherapi.com/v1/forecast.json?key=7f4183b49af04a2e95e120051231103&q=${locationNameInput.value}`)
@@ -45,5 +47,20 @@ locationNameInput.addEventListener('keydown', async (event) => {
 
         console.log(wData);
         introductionPage.classList.add("fadeOutIntroductionPage")
+    }
+}, false);
+
+locSearchBtn2.addEventListener("click", async () => {
+    const wResponse = await fetch(`https://api.weatherapi.com/v1/forecast.json?key=7f4183b49af04a2e95e120051231103&q=${locationNameInput2.value}`)
+    const wData = await wResponse.json();
+    console.log(wData);
+})
+locationNameInput2.addEventListener('keydown', async (event) => {
+    let code = event.code;
+
+    if (code == "Enter") {
+        const wResponse = await fetch(`https://api.weatherapi.com/v1/forecast.json?key=7f4183b49af04a2e95e120051231103&q=${locationNameInput2.value}`)
+        const wData = await wResponse.json();
+        console.log(wData);
     }
 }, false);

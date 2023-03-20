@@ -6,7 +6,7 @@
 }
 
 .con {
-    background-color: rgb(116, 161, 180);
+    background-color: rgb(68, 68, 68);
     height: 100%;
     overflow-x: hidden;
 }
@@ -18,9 +18,11 @@
     height: 100%;
     background-color: #292e3d;
     overflow: hidden;
+    z-index: 2;
+    display: none;
 }
 
-.fadeOutIntroductionPage{
+.fadeOutIntroductionPage {
     opacity: 0;
     transition: 0.3s;
     transform: translateY(-200px);
@@ -227,17 +229,88 @@
     transition: .5s;
 }
 
-.con .introductionPage .introLocSelector .inputBox input:valid ~ #locSearch,
-.con .introductionPage .introLocSelector .inputBox input:focus ~ #locSearch {
+.con .introductionPage .introLocSelector .inputBox input:valid~#locSearch,
+.con .introductionPage .introLocSelector .inputBox input:focus~#locSearch {
     fill: #EAEAEA;
 }
-.con .introductionPage .introLocSelector .inputBox p{
+
+.con .introductionPage .introLocSelector .inputBox p {
     font-size: .9em;
-    color : rgba(255, 255, 255, 0.3);
+    color: rgba(255, 255, 255, 0.3);
     margin: 7px;
     transition: 0.2s;
     cursor: pointer;
 }
-.con .introductionPage .introLocSelector .inputBox p:hover{
+
+.con .introductionPage .introLocSelector .inputBox p:hover {
     color: #EAEAEA;
+}
+
+/*  forecast page styling  */
+
+.con .navBar {
+    height: 70px;
+}
+
+.con .navBar #headerText {
+    text-align: center;
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+    margin: 16px;
+    transform: translateX(15px);
+    line-height: 15px;
+}
+
+.con .navBar .inputBox {
+    position: relative;
+    width: 220px;
+    margin-right: 20px;
+}
+
+.con .navBar .inputBox input {
+    width: 100%;
+    padding: 5px;
+    background-color: transparent;
+    color: #fff;
+    font-size: 1em;
+    transition: 0.4s;
+    border: none;
+    border-bottom: 2px solid #a7a7a7;
+    outline: none;
+}
+
+.con .navBar .inputBox input:valid,
+.con .navBar .inputBox input:focus {
+    border-bottom: 2px solid #EAEAEA;
+}
+
+.con .navBar .inputBox #locSearch2 {
+    position: absolute;
+    left: 89%;
+    top: 23%;
+    cursor: pointer;
+    transition: .5s;
+}
+
+.con .navBar .inputBox input:valid~#locSearch2,
+.con .navBar .inputBox input:focus~#locSearch2 {
+    fill: #EAEAEA;
+}
+
+.con .navBar .inputBox p {
+    font-size: .9em;
+    color: rgba(255, 255, 255, 0.3);
+    margin: 7px;
+    transition: 0.2s;
+    cursor: pointer;
+}
+
+.con .navBar .inputBox p:hover {
+    color: #EAEAEA;
+}
+
+.con .forecast h3{
+    margin: 70px;
+    color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }

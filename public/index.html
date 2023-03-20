@@ -13,7 +13,7 @@
 
 <body>
 
-    <div class="container-fluid con">
+    <div class="container-fluit con">
 
         <div class="row introductionPage">
             <div class="col-12 align-self-center text-center intro">
@@ -37,6 +37,31 @@
                     <p id="getLocationText">Take my own Location</p>
                 </div>
             </div>
+        </div>
+
+        <div class="col-12 navBar">
+            <p id="headerText">Weather <br>Look</p>
+
+            <div class="inputBox">
+                <input id="locationName2" placeholder="search..." type="text" required="required">
+                <svg id="locSearch2" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                    fill="rgba(255, 255, 255, 0.3)" class="bi bi-search" viewBox="0 0 16 16">
+                    <path
+                        d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                </svg>
+            </div>
+        </div>
+        <div class="col-12 forecast">
+            <h3>Forecast</h3>
+
+            <p id="Location">Location</p>
+            <img id="imageStatus" src="" alt="StatusImg">
+            <p id="temp">--<span id="F">F</span><span id="C">C</span></p>
+            <h4 id="statusExplaination">Explain status</h4>
+            <p id="wind">Wind ____</p>
+            <p id="visibility">Visibility ____</p>
+            <p id="airQuality">Air quality ____</p>
+            <p id="humidity">Humidity ____</p>
         </div>
 
     </div>
