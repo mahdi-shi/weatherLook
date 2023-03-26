@@ -1,5 +1,3 @@
-const introductionPage = document.querySelector(".introductionPage");
-
 document.querySelector("#getLocationText").addEventListener("click", async () => {
 
     if ("geolocation" in navigator) {
@@ -16,7 +14,12 @@ document.querySelector("#getLocationText").addEventListener("click", async () =>
 
             console.log(wData.weather);
 
-            introductionPage.classList.add("fadeOutIntroductionPage")
+            fadeOutIntro();
+            introductionPage.style.opacity = "0";
+            setTimeout(() =>{
+                introductionPage.style.display = "none"
+            },500)
+            fadeInForecastPanel()
         });
     }
     else {
@@ -36,7 +39,12 @@ locSearchBtn.addEventListener("click", async () => {
     const wData = await wResponse.json();
     console.log("hello")
     console.log(wData);
-    introductionPage.classList.add("fadeOutIntroductionPage")
+    fadeOutIntro()
+    introductionPage.style.opacity = "0";
+    setTimeout(() =>{
+        introductionPage.style.display = "none"
+    },500)
+    fadeInForecastPanel()
 })
 locationNameInput.addEventListener('keydown', async (event) => {
     let code = event.code;
@@ -46,7 +54,12 @@ locationNameInput.addEventListener('keydown', async (event) => {
         const wData = await wResponse.json();
 
         console.log(wData);
-        introductionPage.classList.add("fadeOutIntroductionPage")
+        fadeOutIntro();
+        introductionPage.style.opacity = "0";
+        setTimeout(() =>{
+            introductionPage.style.display = "none"
+        },500)
+        fadeInForecastPanel()
     }
 }, false);
 
@@ -64,3 +77,23 @@ locationNameInput2.addEventListener('keydown', async (event) => {
         console.log(wData);
     }
 }, false);
+
+//fade out introduction page function
+
+const introductionPage = document.querySelector(".introductionPage");
+const forecastPanel = document.querySelector(".forecast")
+
+function fadeOutIntro() {
+    introductionPage.classList.add("fadeOutIntroductionPage")
+}
+
+function fadeInForecastPanel(){
+    forecastPanel.classList.add("fadeInForecastPanel")
+    forecastPanel.classList.add("align-items-start")
+    forecastPanel.style.display = "flex"
+    forecastPanel.style.transition = "0.5s"
+    setTimeout(() =>{
+        forecastPanel.style.opacity = "1";
+        forecastPanel.style.marginTop  = "0px"
+    },500)
+}

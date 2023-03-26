@@ -6,7 +6,7 @@
 }
 
 .con {
-    background-color: rgb(68, 68, 68);
+    background-color: #292e3d;
     height: 100%;
     overflow-x: hidden;
 }
@@ -19,13 +19,16 @@
     background-color: #292e3d;
     overflow: hidden;
     z-index: 2;
+    opacity: 1;
     display: none;
+    transition: 0.5s;
 }
 
 .fadeOutIntroductionPage {
-    opacity: 0;
-    transition: 0.3s;
+    transition: 0.5s;
     transform: translateY(-200px);
+    opacity: 0;
+    display: none;
 }
 
 .con .introductionPage .intro {
@@ -36,6 +39,7 @@
     animation-fill-mode: forwards;
     animation-timing-function: ease-out;
     opacity: 0;
+    margin-top: 130px;
 }
 
 @keyframes showedIntro {
@@ -248,11 +252,24 @@
 
 /*  forecast page styling  */
 
-.con .navBar {
+.con .forecast {
+    display: flex;
+    opacity: 1;
+    transition: 0.5s;
+    margin-top: 100px;
+}
+
+.con .forecast .navBar {
     height: 70px;
 }
 
-.con .navBar #headerText {
+.fadeInForecastPanel {
+    display: flex;
+    opacity: 1;
+    transition: 0.5s;
+}
+
+.con .forecast .navBar #headerText {
     text-align: center;
     font-weight: bold;
     color: rgb(255, 255, 255);
@@ -261,13 +278,13 @@
     line-height: 15px;
 }
 
-.con .navBar .inputBox {
+.con .forecast .navBar .inputBox {
     position: relative;
     width: 220px;
     margin-right: 20px;
 }
 
-.con .navBar .inputBox input {
+.con .forecast .navBar .inputBox input {
     width: 100%;
     padding: 5px;
     background-color: transparent;
@@ -279,12 +296,12 @@
     outline: none;
 }
 
-.con .navBar .inputBox input:valid,
-.con .navBar .inputBox input:focus {
+.con .forecast .navBar .inputBox input:valid,
+.con .forecast .navBar .inputBox input:focus {
     border-bottom: 2px solid #EAEAEA;
 }
 
-.con .navBar .inputBox #locSearch2 {
+.con .forecast .navBar .inputBox #locSearch2 {
     position: absolute;
     left: 89%;
     top: 23%;
@@ -292,12 +309,12 @@
     transition: .5s;
 }
 
-.con .navBar .inputBox input:valid~#locSearch2,
-.con .navBar .inputBox input:focus~#locSearch2 {
+.con .forecast .navBar .inputBox input:valid~#locSearch2,
+.con .forecast .navBar .inputBox input:focus~#locSearch2 {
     fill: #EAEAEA;
 }
 
-.con .navBar .inputBox p {
+.con .forecast .navBar .inputBox p {
     font-size: .9em;
     color: rgba(255, 255, 255, 0.3);
     margin: 7px;
@@ -305,12 +322,42 @@
     cursor: pointer;
 }
 
-.con .navBar .inputBox p:hover {
+.con .forecast .navBar .inputBox p:hover {
     color: #EAEAEA;
 }
 
-.con .forecast h3{
-    margin: 70px;
+.con .forecast .information{
+    margin-left: 15%;
+    margin-top: 40px;
+}
+
+.con .forecast .information h3 {
+    margin-left: -100px;
+    margin-top: 60px;
     color: white;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.con .forecast .information #Location{
+    margin-top: 80px;
+}
+.con .forecast .information p{
+    color: rgb(223, 223, 223);
+}
+
+.con .forecast .information ul li{
+    text-decoration: none;
+    list-style: none;
+    font-size: .6em;
+    cursor: pointer;
+    margin: 0;
+    color: rgb(223, 223, 223);
+    width: 10px;
+    transform: translate(50px,-40px);
+}
+.con .forecast .information h4{
+    margin-top: -30px;
+    margin-bottom: 18px;
+}
+.con .forecast .information img{
+    transform: translateY(-10px);
 }
