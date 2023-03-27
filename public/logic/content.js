@@ -20,6 +20,12 @@ document.querySelector("#getLocationText").addEventListener("click", async () =>
                 introductionPage.style.display = "none"
             },500)
             fadeInForecastPanel()
+            setTimeout(() =>{
+                statusBgImage.style.top = "-88vh"
+                statusBgImage.style.opacity = "1";
+                backgroundStatusCover.style.top = "-948h";
+                backgroundStatusCover.style.opacity = "1";
+            },3000)
         });
     }
     else {
@@ -33,6 +39,8 @@ const locSearchBtn = document.querySelector("#locSearch");
 const locationNameInput = document.querySelector("#locationName");
 const locSearchBtn2 = document.querySelector("#locSearch2");
 const locationNameInput2 = document.querySelector("#locationName2");
+const statusBgImage = document.querySelector("#backgroundStatus");
+const backgroundStatusCover = document.querySelector("#backgroundStatusCover")
 
 locSearchBtn.addEventListener("click", async () => {
     const wResponse = await fetch(`https://api.weatherapi.com/v1/forecast.json?key=7f4183b49af04a2e95e120051231103&q=${locationNameInput.value}`)
@@ -45,6 +53,12 @@ locSearchBtn.addEventListener("click", async () => {
         introductionPage.style.display = "none"
     },500)
     fadeInForecastPanel()
+    setTimeout(() =>{
+        statusBgImage.style.top = "-88vh"
+        statusBgImage.style.opacity = "1";
+        backgroundStatusCover.style.top = "-98vh";
+        backgroundStatusCover.style.opacity = "1";
+    },3000)
 })
 locationNameInput.addEventListener('keydown', async (event) => {
     let code = event.code;
@@ -60,6 +74,12 @@ locationNameInput.addEventListener('keydown', async (event) => {
             introductionPage.style.display = "none"
         },500)
         fadeInForecastPanel()
+        setTimeout(() =>{
+            statusBgImage.style.top = "-88vh"
+            statusBgImage.style.opacity = "1";
+            backgroundStatusCover.style.top = "-98vh";
+            backgroundStatusCover.style.opacity = "1";
+        },3000)
     }
 }, false);
 
@@ -94,6 +114,6 @@ function fadeInForecastPanel(){
     forecastPanel.style.transition = "0.5s"
     setTimeout(() =>{
         forecastPanel.style.opacity = "1";
-        forecastPanel.style.marginTop  = "0px"
+        forecastPanel.style.marginTop = "0px"
     },500)
 }
