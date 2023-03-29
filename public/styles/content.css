@@ -265,7 +265,7 @@
     z-index: 10;
 }
 
-.con .forecast .navBar svg{
+.con .forecast .navBar svg {
     position: absolute;
     left: 8%;
     top: 28px;
@@ -356,17 +356,7 @@
 
 .con .forecast .information p {
     color: rgb(223, 223, 223);
-}
-
-.con .forecast .information ul li {
-    text-decoration: none;
-    list-style: none;
-    font-size: .6em;
-    cursor: pointer;
-    margin: 0;
-    color: rgb(223, 223, 223);
-    width: 10px;
-    transform: translate(50px, -40px);
+    user-select: none;
 }
 
 .con .forecast .information h4 {
@@ -375,8 +365,24 @@
     color: white;
 }
 
+.con .forecast .information #degree {
+    font-size: 1em;
+    color: white;
+    margin-left: 3px;
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+.con .forecast .information #degree:hover {
+    margin-left: 5px;
+}
+
 .con .forecast .information img {
     transform: translateY(-10px);
+}
+
+.con .forecast .information #imageStatus2 {
+    margin-top: -5px;
 }
 
 .con .forecast #backgroundStatus {
@@ -388,6 +394,7 @@
     left: 0;
     opacity: 0;
     transition: 1.2s;
+    filter: brightness(95%);
 }
 
 .con .forecast #backgroundStatusCover {
@@ -400,4 +407,40 @@
     background: linear-gradient(rgb(15, 15, 15), #292e3d);
     opacity: 0;
     transition: 1.2s;
+    filter: blur(20px);
+}
+
+.refreshBgImage{
+    animation-name: refreshBgImage;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: both;
+}
+
+@keyframes refreshBgImage{
+    0%{
+        opacity: 0;
+        top: -58vh;
+    }
+    100%{
+        opacity: 1;
+        top: -88vh;
+    }
+}
+.refreshBgImageCover{
+    animation-name: refreshBgImageCover;
+    animation-duration: 0.5s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: both;
+}
+
+@keyframes refreshBgImageCover{
+    0%{
+        top: -68vh;
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+        top: -98vh;
+    }
 }
