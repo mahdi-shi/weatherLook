@@ -72,7 +72,7 @@ locSearchBtn.addEventListener("click", async () => {
         backgroundStatusCover.style.top = "-98vh";
         backgroundStatusCover.style.opacity = "1";
     }, 3000)
-    locationText.textContent = wData.location.name;
+    locationText.textContent = wData.location.country+" / "+wData.location.name;
     tempText.innerHTML = wData.current.temp_c + "°";
     degree.addEventListener("click", () => {
         if (degreeStatus == false) {
@@ -281,7 +281,7 @@ locationNameInput.addEventListener('keydown', async (event) => {
             backgroundStatusCover.style.top = "-98vh";
             backgroundStatusCover.style.opacity = "1";
         }, 3000)
-        locationText.textContent = wData.location.name;
+        locationText.textContent = wData.location.country+" / "+wData.location.name;
         tempText.innerHTML = wData.current.temp_c + "°";
         degree.addEventListener("click", () => {
             if (degreeStatus == false) {
@@ -320,8 +320,8 @@ locationNameInput.addEventListener('keydown', async (event) => {
 
 locSearchBtn2.addEventListener("click", async () => {
     const wResponse = await fetch(`https://api.weatherapi.com/v1/forecast.json?key=7f4183b49af04a2e95e120051231103&q=${locationNameInput2.value}`)
-    const wData = await wResponse.json();
-    locationText.textContent = wData.location.name;
+    const wData = await wResponse.json(); 
+    locationText.textContent = wData.location.country+" / "+wData.location.name;
     tempText.innerHTML = wData.current.temp_c + "°";
 
     degree.addEventListener("click", () => {
@@ -370,7 +370,7 @@ locationNameInput2.addEventListener('keydown', async (event) => {
     if (code == "Enter") {
         const wResponse = await fetch(`https://api.weatherapi.com/v1/forecast.json?key=7f4183b49af04a2e95e120051231103&q=${locationNameInput2.value}`)
         const wData = await wResponse.json();
-        locationText.textContent = wData.location.name;
+        locationText.textContent = wData.location.country+" / "+wData.location.name;
         tempText.innerHTML = wData.current.temp_c + "°";
 
         degree.addEventListener("click", () => {
