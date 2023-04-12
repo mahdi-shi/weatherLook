@@ -454,31 +454,72 @@
     border-radius: 10px;
     border: 2px solid #474f63;
     backdrop-filter: blue(20px);
-    transform: translatey(-120vh);
+    transform: translateY(-120vh);
     z-index: 100;
 }
-.con .forecast .forTenDaysBox tr{
+
+.con .forecast .forTenDaysBox tr {
     color: white;
     border: none;
     text-align: center;
     font-size: .8em;
     margin-top: 20px;
 }
-.con .forecast .forTenDaysBox tr th{
+
+.con .forecast .forTenDaysBox tr th {
     color: white;
     border: none;
     user-select: none;
 }
-.con .forecast .forTenDaysBox tr td{
+
+.con .forecast .forTenDaysBox tr td {
     color: white;
     border: none;
     user-select: none;
 }
-.con .forecast .for3DaysText{
+
+.con .forecast .for3DaysText {
     font-weight: bold;
     color: white;
-    transform: translatey(-123vh);
+    transform: translateY(-123vh);
     margin-left: 4%;
     z-index: 200;
     font-size: 1.5em;
+}
+
+.con .forecast .hourly {
+    background-color: #363c50;
+    border-radius: 10px;
+    border: 2px solid #474f63;
+    backdrop-filter: blue(20px);
+    transform: translateY(-120vh);
+    z-index: 100;
+    height: fit-content;
+    color: white;
+    margin-left: 30px;
+}
+
+.con .forecast .hourly ul {
+    width: 100%;
+    height: 146px;
+    background-color: #a7a7a7;
+    margin-top: -40px;
+    margin-left: -50px;
+    overflow: hidden;
+}
+
+.con .forecast .hourlyText {
+    font-weight: bold;
+    color: white;
+    z-index: 200;
+    font-size: 1.5em;
+    transform: translate(-30px, -70px);
+    position: relative;
+}
+
+.con .forecast .hourly ul li {
+    display: inline;
+    height: 100%;
+    width: 130px;
+    border: 2px solid black;   
 }
