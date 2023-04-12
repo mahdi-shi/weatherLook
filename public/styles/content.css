@@ -410,37 +410,75 @@
     filter: blur(20px);
 }
 
-.refreshBgImage{
+.refreshBgImage {
     animation-name: refreshBgImage;
     animation-duration: 1s;
     animation-timing-function: ease-in-out;
     animation-fill-mode: both;
 }
 
-@keyframes refreshBgImage{
-    0%{
+@keyframes refreshBgImage {
+    0% {
         opacity: 0;
         top: -58vh;
     }
-    100%{
+
+    100% {
         opacity: 1;
         top: -88vh;
     }
 }
-.refreshBgImageCover{
+
+.refreshBgImageCover {
     animation-name: refreshBgImageCover;
     animation-duration: 0.5s;
     animation-timing-function: ease-in-out;
     animation-fill-mode: both;
 }
 
-@keyframes refreshBgImageCover{
-    0%{
+@keyframes refreshBgImageCover {
+    0% {
         top: -68vh;
         opacity: 0;
     }
-    100%{
+
+    100% {
         opacity: 1;
         top: -98vh;
     }
+}
+
+.con .forecast .forTenDaysBox {
+    color: white;
+    background-color: #363c50;
+    border-radius: 10px;
+    border: 2px solid #474f63;
+    backdrop-filter: blue(20px);
+    transform: translatey(-120vh);
+    z-index: 100;
+}
+.con .forecast .forTenDaysBox tr{
+    color: white;
+    border: none;
+    text-align: center;
+    font-size: .8em;
+    margin-top: 20px;
+}
+.con .forecast .forTenDaysBox tr th{
+    color: white;
+    border: none;
+    user-select: none;
+}
+.con .forecast .forTenDaysBox tr td{
+    color: white;
+    border: none;
+    user-select: none;
+}
+.con .forecast .for3DaysText{
+    font-weight: bold;
+    color: white;
+    transform: translatey(-123vh);
+    margin-left: 4%;
+    z-index: 200;
+    font-size: 1.5em;
 }
