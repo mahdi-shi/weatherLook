@@ -514,6 +514,7 @@
 .con .forecast .hourlyText {
     font-weight: bold;
     color: white;
+    user-select: none;
     z-index: 200;
     font-size: 1.5em;
     transform: translate(-30px, -70px);
@@ -523,6 +524,7 @@
 .con .forecast .hourly .hours li {
     position: relative;
     display: inline-block;
+    user-select: none;
     list-style: none;
     transform: translateX(-35px);
     margin-left: 3px;
@@ -533,6 +535,7 @@
     height: 100%;
     width: 130px;
     background-color: transparent;
+    user-select: none;
     display: inline-block;
     backdrop-filter: blue(20px);
     transition: 0.3s;
@@ -546,6 +549,7 @@
     margin-top: 8px;
     margin-left: 16px;
     width: 40px;
+    user-select: none;
     height: 40px;
     border: none;
 }
@@ -554,26 +558,32 @@
     font-size: .8em;
     margin-left: 20px;
     margin-top: 5px;
+    user-select: none;
+
 }
 
 .con .forecast .hourly .hours li span .hourlyExplaining {
     font-size: .8em;
     margin-left: 20px;
     margin-top: -15px;
+    user-select: none;
+
 }
-.con .forecast .hourly .hours li span .hourlyH{
+
+.con .forecast .hourly .hours li span .hourlyH {
     font-size: .8em;
     margin-left: 20px;
     user-select: none;
     margin-top: 20px;
 }
-.con .forecast .hourly #arrowRight{
+
+.con .forecast .hourly #arrowRight {
     justify-content: center;
     border-radius: 50%;
     width: 40px;
     height: 200px;
     align-items: center;
-    display: flex;    
+    display: flex;
     position: absolute;
     margin-top: -185px;
     z-index: 1000;
@@ -581,21 +591,21 @@
     left: 94%;
 }
 
-.con .forecast .hourly #arrowRight svg{
+.con .forecast .hourly #arrowRight svg {
     transition: 0.3s;
 }
 
-.con .forecast .hourly #arrowRight:hover svg{
+.con .forecast .hourly #arrowRight:hover svg {
     fill: white;
 }
 
-.con .forecast .hourly #arrowLeft{
+.con .forecast .hourly #arrowLeft {
     justify-content: center;
     border-radius: 50%;
     width: 40px;
     height: 200px;
     align-items: center;
-    display: flex;    
+    display: flex;
     position: absolute;
     margin-top: -185px;
     z-index: 1000;
@@ -606,10 +616,10 @@
     opacity: 0;
 }
 
-.con .forecast .hourly #arrowLeft svg{
+.con .forecast .hourly #arrowLeft svg {
     transition: 0.3s;
 }
 
-.con .forecast .hourly #arrowLeft:hover svg{
+.con .forecast .hourly #arrowLeft:hover svg {
     fill: white;
 }
