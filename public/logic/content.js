@@ -5108,3 +5108,59 @@ function fadeInForecastPanel() {
     forecastPanel.style.marginTop = "0px"
   }, 500)
 }
+
+//arrowing hourly status for current weather
+
+const hoursList = document.querySelector(".hours");
+const arrowRightBtn = document.querySelector("#arrowRight");
+const arrowLeftBtn = document.querySelector("#arrowLeft");
+
+let pos = 0
+
+arrowRightBtn.addEventListener("click", () => {
+  pos += -130;
+
+  setTimeout(() => {
+    arrowLeftBtn.style.opacity = "1"
+  }, 100);
+  hoursList.style.marginLeft = pos + "px"
+  if (pos == -390) {
+    arrowRightBtn.style.opacity = "0";
+    setTimeout(() => {
+      arrowRightBtn.style.display = "none";
+    }, 100);
+  }
+  else {
+    hoursList.style.marginLeft = pos;
+    arrowLeftBtn.style.display = "flex"
+    arrowRightBtn.style.display = "flex";
+    setTimeout(() => {
+      arrowRightBtn.style.opacity = "1";
+    }, 100);
+  }
+  console.log(pos);
+})
+
+arrowLeftBtn.addEventListener("click", () => {
+  pos += 130;
+
+  if (pos == 0) {
+    hoursList.style.marginLeft = pos;
+    arrowLeftBtn.style.opacity = "0";
+    setTimeout(() => {
+      arrowLeftBtn.style.display = "none";
+    }, 100);
+    arrowRightBtn.style.display = "flex";
+    setTimeout(() => {
+      arrowRightBtn.style.opacity = "1";
+    }, 100);
+  }
+  else {
+    hoursList.style.marginLeft = pos;
+    arrowRightBtn.style.display = "flex";
+    setTimeout(() => {
+      arrowRightBtn.style.opacity = "1";
+    }, 100);
+  }
+  console.log(pos);
+})

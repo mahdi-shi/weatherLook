@@ -502,13 +502,13 @@
 }
 
 .con .forecast .hourly .hours {
-    width: 100%;
+    width: 120%;
     height: 146px;
     margin-top: -40px;
     margin-left: 1px;
-    overflow-x: hidden;
     position: relative;
     display: flex;
+    transition: 0.3s;
 }
 
 .con .forecast .hourlyText {
@@ -532,6 +532,84 @@
     position: relative;
     height: 100%;
     width: 130px;
-    border: 2px solid black;
+    background-color: transparent;
     display: inline-block;
+    backdrop-filter: blue(20px);
+    transition: 0.3s;
+}
+
+.con .forecast .hourly .hours li span:hover {
+    background-color: #474f63;
+}
+
+.con .forecast .hourly .hours li span .wIconhourly {
+    margin-top: 8px;
+    margin-left: 16px;
+    width: 40px;
+    height: 40px;
+    border: none;
+}
+
+.con .forecast .hourly .hours li span .hourlyTemp {
+    font-size: .8em;
+    margin-left: 20px;
+    margin-top: 5px;
+}
+
+.con .forecast .hourly .hours li span .hourlyExplaining {
+    font-size: .8em;
+    margin-left: 20px;
+    margin-top: -15px;
+}
+.con .forecast .hourly .hours li span .hourlyH{
+    font-size: .8em;
+    margin-left: 20px;
+    user-select: none;
+    margin-top: 20px;
+}
+.con .forecast .hourly #arrowRight{
+    justify-content: center;
+    border-radius: 50%;
+    width: 40px;
+    height: 200px;
+    align-items: center;
+    display: flex;    
+    position: absolute;
+    margin-top: -185px;
+    z-index: 1000;
+    transition: 0.3s;
+    left: 94%;
+}
+
+.con .forecast .hourly #arrowRight svg{
+    transition: 0.3s;
+}
+
+.con .forecast .hourly #arrowRight:hover svg{
+    fill: white;
+}
+
+.con .forecast .hourly #arrowLeft{
+    justify-content: center;
+    border-radius: 50%;
+    width: 40px;
+    height: 200px;
+    align-items: center;
+    display: flex;    
+    position: absolute;
+    margin-top: -185px;
+    z-index: 1000;
+    transition: 0.3s;
+    left: -1%;
+    transform: rotate(180deg);
+    display: none;
+    opacity: 0;
+}
+
+.con .forecast .hourly #arrowLeft svg{
+    transition: 0.3s;
+}
+
+.con .forecast .hourly #arrowLeft:hover svg{
+    fill: white;
 }
