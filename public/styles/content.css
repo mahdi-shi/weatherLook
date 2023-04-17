@@ -623,3 +623,9 @@
 .con .forecast .hourly #arrowLeft:hover svg {
     fill: white;
 }
+
+/*        map design         */
+
+.con .forecast #map{
+    height: 400px;
+}
