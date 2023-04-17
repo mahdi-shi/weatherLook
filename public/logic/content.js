@@ -2270,35 +2270,35 @@ locSearchBtn.addEventListener("click", async () => {
       for (let i = 0; i < hourlyTemps.length; i++) {
         switch (i) {
           case 0: {
-            hourlyTemps[i].innerHTML = wData.forecast.forecastday[0].hour[3].temp_c + "° F"
+            hourlyTemps[i].innerHTML = wData.forecast.forecastday[0].hour[3].temp_c + "° C"
             break;
           }
           case 1: {
-            hourlyTemps[i].innerHTML = wData.forecast.forecastday[0].hour[6].temp_c + "° F"
+            hourlyTemps[i].innerHTML = wData.forecast.forecastday[0].hour[6].temp_c + "° C"
             break;
           }
           case 2: {
-            hourlyTemps[i].innerHTML = wData.forecast.forecastday[0].hour[9].temp_c + "° F"
+            hourlyTemps[i].innerHTML = wData.forecast.forecastday[0].hour[9].temp_c + "° C"
             break;
           }
           case 3: {
-            hourlyTemps[i].innerHTML = wData.forecast.forecastday[0].hour[12].temp_c + "° F"
+            hourlyTemps[i].innerHTML = wData.forecast.forecastday[0].hour[12].temp_c + "° C"
             break;
           }
           case 4: {
-            hourlyTemps[i].innerHTML = wData.forecast.forecastday[0].hour[15].temp_c + "° F"
+            hourlyTemps[i].innerHTML = wData.forecast.forecastday[0].hour[15].temp_c + "° C"
             break;
           }
           case 5: {
-            hourlyTemps[i].innerHTML = wData.forecast.forecastday[0].hour[18].temp_c + "° F"
+            hourlyTemps[i].innerHTML = wData.forecast.forecastday[0].hour[18].temp_c + "° C"
             break;
           }
           case 6: {
-            hourlyTemps[i].innerHTML = wData.forecast.forecastday[0].hour[21].temp_c + "° F"
+            hourlyTemps[i].innerHTML = wData.forecast.forecastday[0].hour[21].temp_c + "° C"
             break;
           }
           case 7: {
-            hourlyTemps[i].innerHTML = wData.forecast.forecastday[0].hour[23].temp_c + "° F"
+            hourlyTemps[i].innerHTML = wData.forecast.forecastday[0].hour[23].temp_c + "° C"
             break;
           }
         }
