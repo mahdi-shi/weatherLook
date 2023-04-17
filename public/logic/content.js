@@ -2844,7 +2844,7 @@ locationNameInput.addEventListener('keydown', async (event) => {
 
       degree.addEventListener("click", () => {
 
-        if (degreeStatus == false) {
+        if (degreeStatus == ture) {
           degree.textContent = "F"
           tempText.innerHTML = wData.current.temp_f + "°";
           feelsLike.textContent = "Feels like " + wData.current.feelslike_f;
@@ -3228,7 +3228,7 @@ locationNameInput.addEventListener('keydown', async (event) => {
               break;
             }
           }
-          degreeStatus = true;
+          degreeStatus = false;
         }
         else {
           degree.textContent = "C"
@@ -3614,7 +3614,7 @@ locationNameInput.addEventListener('keydown', async (event) => {
               break;
             }
           }
-          degreeStatus = false;
+          degreeStatus = true;
         }
       })
 
@@ -5109,7 +5109,7 @@ locSearchBtn2.addEventListener("click", async () => {
 
     degree.addEventListener("click", () => {
 
-      if (degreeStatus == false) {
+      if (degreeStatus == ture) {
         degree.textContent = "F"
         tempText.innerHTML = wData.current.temp_f + "°";
         feelsLike.textContent = "Feels like " + wData.current.feelslike_f;
@@ -5493,7 +5493,7 @@ locSearchBtn2.addEventListener("click", async () => {
             break;
           }
         }
-        degreeStatus = true;
+        degreeStatus = false;
       }
       else {
         degree.textContent = "C"
@@ -5503,35 +5503,35 @@ locSearchBtn2.addEventListener("click", async () => {
         for (let i = 0; i < hourlyTemps.length; i++) {
           switch (i) {
             case 0: {
-              hourlyTemps[i].innerHTML = wData.forecast.forecastday[0].hour[3].temp_f + "° C"
+              hourlyTemps[i].innerHTML = wData.forecast.forecastday[0].hour[3].temp_c + "° C"
               break;
             }
             case 1: {
-              hourlyTemps[i].innerHTML = wData.forecast.forecastday[0].hour[6].temp_f + "° C"
+              hourlyTemps[i].innerHTML = wData.forecast.forecastday[0].hour[6].temp_c + "° C"
               break;
             }
             case 2: {
-              hourlyTemps[i].innerHTML = wData.forecast.forecastday[0].hour[9].temp_f + "° C"
+              hourlyTemps[i].innerHTML = wData.forecast.forecastday[0].hour[9].temp_c + "° C"
               break;
             }
             case 3: {
-              hourlyTemps[i].innerHTML = wData.forecast.forecastday[0].hour[12].temp_f + "° C"
+              hourlyTemps[i].innerHTML = wData.forecast.forecastday[0].hour[12].temp_c + "° C"
               break;
             }
             case 4: {
-              hourlyTemps[i].innerHTML = wData.forecast.forecastday[0].hour[15].temp_f + "° C"
+              hourlyTemps[i].innerHTML = wData.forecast.forecastday[0].hour[15].temp_c + "° C"
               break;
             }
             case 5: {
-              hourlyTemps[i].innerHTML = wData.forecast.forecastday[0].hour[18].temp_f + "° C"
+              hourlyTemps[i].innerHTML = wData.forecast.forecastday[0].hour[18].temp_c + "° C"
               break;
             }
             case 6: {
-              hourlyTemps[i].innerHTML = wData.forecast.forecastday[0].hour[21].temp_f + "° C"
+              hourlyTemps[i].innerHTML = wData.forecast.forecastday[0].hour[21].temp_c + "° C"
               break;
             }
             case 7: {
-              hourlyTemps[i].innerHTML = wData.forecast.forecastday[0].hour[23].temp_f + "° C"
+              hourlyTemps[i].innerHTML = wData.forecast.forecastday[0].hour[23].temp_c + "° C"
               break;
             }
           }
@@ -5879,7 +5879,7 @@ locSearchBtn2.addEventListener("click", async () => {
             break;
           }
         }
-        degreeStatus = false;
+        degreeStatus = true;
       }
     })
 
@@ -7031,7 +7031,7 @@ locationNameInput2.addEventListener('keydown', async (event) => {
     tempText.innerHTML = wData.current.temp_c + "°";
 
     degree.addEventListener("click", () => {
-      if (degreeStatus == false) {
+      if (degreeStatus == true) {
         degree.textContent = "F"
         tempText.innerHTML = wData.current.temp_f + "°";
         feelsLike.textContent = "Feels like " + wData.current.feelslike_f;
@@ -7073,7 +7073,7 @@ locationNameInput2.addEventListener('keydown', async (event) => {
           }
         }
 
-        degreeStatus = true;
+        degreeStatus = false;
       }
       else {
         degree.textContent = "C"
@@ -7117,7 +7117,7 @@ locationNameInput2.addEventListener('keydown', async (event) => {
           }
         }
 
-        degreeStatus = false;
+        degreeStatus = true;
       }
     })
     statusExplaination.textContent = wData.current.condition.text;
