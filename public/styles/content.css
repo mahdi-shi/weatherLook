@@ -511,13 +511,12 @@
     transition: 0.3s;
 }
 
-.con .forecast .hourlyText {
+.con .forecast .hourly .hourlyText {
     font-weight: bold;
     color: white;
-    user-select: none;
     z-index: 200000;
     font-size: 1.5em;
-    transform: translate(-30px, -70px);
+    transform: translate(-30px,-150px);
     position: relative;
 }
 
