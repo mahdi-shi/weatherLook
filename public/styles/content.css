@@ -515,7 +515,7 @@
     font-weight: bold;
     color: white;
     user-select: none;
-    z-index: 200;
+    z-index: 200000;
     font-size: 1.5em;
     transform: translate(-30px, -70px);
     position: relative;
@@ -628,4 +628,11 @@
 
 .con .forecast #map{
     height: 400px;
+    background-color: #363c50;
+    border-radius: 10px;
+    border: 2px solid #474f63;
+    backdrop-filter: blue(20px);
+    transform: translateY(-110vh);
+    z-index: 100;
+    margin-top: -30px;
 }
