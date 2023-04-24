@@ -2875,7 +2875,7 @@ locationNameInput.addEventListener('keydown', async (event) => {
 
       degree.addEventListener("click", () => {
 
-        if (degreeStatus == ture) {
+        if (degreeStatus == true) {
           degree.textContent = "F"
           tempText.innerHTML = wData.current.temp_f + "°";
           feelsLike.textContent = "Feels like " + wData.current.feelslike_f;

@@ -626,7 +626,7 @@
 /*        map design         */
 
 .con .forecast #map{
-    height: 400px;
+    height: 500px;
     background-color: #363c50;
     border-radius: 10px;
     border: 2px solid #474f63;
