@@ -516,7 +516,7 @@
     color: white;
     z-index: 200000;
     font-size: 1.5em;
-    transform: translate(-30px,-150px);
+    transform: translate(-30px, -150px);
     position: relative;
 }
 
@@ -625,7 +625,7 @@
 
 /*        map design         */
 
-.con .forecast #map{
+.con .forecast #map {
     height: 500px;
     background-color: #363c50;
     border-radius: 10px;
@@ -636,10 +636,45 @@
     margin-top: -30px;
 }
 
-.con .forecast .mapTitle{
+.con .forecast .mapTitle {
     color: white;
     font-weight: bold;
-    margin-top: -630px ;
+    margin-top: -630px;
     margin-left: 4%;
     font-size: 1.5em;
+}
+
+/*       desinging for favorites location pannel        */
+
+.con .forecast .favoritesPannel {
+    position: fixed;
+    width: 100%;
+    border: 2px solid #474f63;
+    height: 600px;
+    background-color: #363c50;
+    z-index: 999999;
+    transform: translateX(90%);
+}
+
+.con .forecast .favoritesPannel .moveFavoritePannelBtn {
+    width: 60px;
+    height: 60px;
+    border: 2px solid #474f63;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-46%)rotate(45deg);
+    margin-left: -40px;
+    background-color: #363c50;
+}
+
+.con .forecast .favoritesPannel .moveFavoritePannelBtn svg{
+    position: absolute;
+    transition: 0.4s;
+    transform: translate(-110%,10%)rotate(-45deg);
+    left: 50%;
+    top: 50%;
+}
+
+.con .forecast .favoritesPannel .moveFavoritePannelBtn:hover svg{
+    fill: #c0c0c0;
 }
