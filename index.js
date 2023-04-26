@@ -2,10 +2,12 @@ import express from 'express';
 import axios from 'axios';
 import cors from 'cors'
 import fetch from 'node-fetch';
+import Datastore from 'nedb'
 
 const app = express();
 
 app.use(express.static('public'));
+app.use(express.json({limit: '1mb'}));
 
 app.get('/products/:id', function (req, res, next) {
   res.json({ msg: 'This is CORS-enabled for all origins!' });
@@ -40,4 +42,17 @@ app.get("/weather/:latlon", async (req, res) => {
   }
 
   res.json(DataS)
+})
+
+const DataBase = new Datastore('database.db');
+DataBase.loadDatabase();
+
+app.post("/api",async(req,res) => {
+  const data = req.body;
+  console.log("i got a request");
+  DataBase.insert(data)
+  res.json({
+    status : "ok",
+  })
+
 })

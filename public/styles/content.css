@@ -394,7 +394,7 @@
     left: 0;
     opacity: 0;
     transition: 1.2s;
-    filter: brightness(95%);
+    filter: brightness(90%);
 }
 
 .con .forecast #backgroundStatusCover {
@@ -648,12 +648,19 @@
 
 .con .forecast .favoritesPannel {
     position: fixed;
-    width: 100%;
+    width: 90%;
     border: 2px solid #474f63;
     height: 600px;
     background-color: #363c50;
     z-index: 999999;
-    transform: translateX(90%);
+    transform: translateX(121%);
+    transition: 0.5s;
+}
+
+.con .forecast .favoritesPannel h2 {
+    color: white;
+    font-weight: 1.6em;
+    margin: 40px;
 }
 
 .con .forecast .favoritesPannel .moveFavoritePannelBtn {
@@ -663,18 +670,116 @@
     position: absolute;
     top: 50%;
     transform: translateY(-46%)rotate(45deg);
-    margin-left: -40px;
+    margin-left: -130px;
+    border-radius: 5px;
     background-color: #363c50;
 }
 
-.con .forecast .favoritesPannel .moveFavoritePannelBtn svg{
+.con .forecast .favoritesPannel .moveFavoritePannelBtn svg {
     position: absolute;
     transition: 0.4s;
-    transform: translate(-110%,10%)rotate(-45deg);
+    transform: translate(-110%, 10%)rotate(-45deg);
     left: 50%;
     top: 50%;
 }
 
-.con .forecast .favoritesPannel .moveFavoritePannelBtn:hover svg{
+.con .forecast .favoritesPannel .moveFavoritePannelBtn:hover svg {
     fill: #c0c0c0;
+}
+
+.con .forecast .favoritesPannel .moveFavoritePannelBtn::before {
+    content: '';
+    position: absolute;
+    width: 3px;
+    height: 100%;
+    background-color: #363c50;
+    left: 98%;
+}
+
+.con .forecast .favoritesPannel .moveFavoritePannelBtn::after {
+    content: '';
+    position: absolute;
+    width: 3px;
+    height: 100%;
+    transform: rotate(90deg);
+    background-color: #363c50;
+    left: 48%;
+    top: -50%;
+}
+
+.con .forecast .favoritesPannel .selectors {
+    height: 130px;
+    position: absolute;
+    width: 90px;
+    background-color: #363c50;
+    border: 2px solid #474f63;
+    top: 50%;
+    border-radius: 5px;
+    z-index: 999999999;
+    margin-left: -102px;
+    transform: translateY(-50%);
+}
+
+.con .forecast .favoritesPannel .selectors::before {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 5px;
+    background-color: #363c50;
+    left: 99%;
+}
+
+.con .forecast .favoritesPannel .selectors ul li {
+    text-decoration: none;
+    color: rgb(187, 187, 187);
+    font-weight: bold;
+    font-size: 0.8em;
+    margin-top: 35px;
+    list-style: none;
+    margin-left: -20px;
+    cursor: pointer;
+    transition: 0.4s;
+    transform: translateY(-15px);
+}
+
+.con .forecast .favoritesPannel .selectors ul li:hover {
+    color: rgb(255, 255, 255);
+}
+
+.con .forecast .favoritesPannel .saveBoxesList li {
+    width: 200px;
+    height: 200px;
+    border: 2px solid rgb(187, 187, 187);
+    display: inline-block;
+    list-style: none;
+    border-radius: 5px;
+    margin: 5px;
+    transform: translateX(50px);
+    margin-top: 20px;
+}
+
+.con .forecast .favoritesPannel .saveBoxesList li p {
+    color: white;
+    font-weight: bold;
+    font-size: .9em;
+    margin-left: 15px;    
+}
+
+.con .forecast .favoritesPannel .saveBoxesList li p:nth-child(1) {
+    margin: 15px;
+}
+.con .forecast .favoritesPannel .saveBoxesList li p:nth-child(2) {
+    margin-left: 15px;
+    font-size: 2em;
+    margin-top: -10px;
+}
+.con .forecast .favoritesPannel .saveBoxesList li p:nth-child(3) {
+    margin-top: -15px;
+}
+.con .forecast .favoritesPannel .saveBoxesList li p:nth-child(4) {
+    margin-top: -15px;
+}
+.con .forecast .favoritesPannel .saveBoxesList li p:nth-child(5) {
+    margin-bottom: -15px;
+    transform: translateY(10px);
 }
