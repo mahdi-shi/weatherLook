@@ -60,6 +60,12 @@ const hourlyExplainings = document.querySelectorAll(".hourlyExplaining");
 const hourlyTemps = document.querySelectorAll('.hourlyTemp');
 const wIconhourly = document.querySelectorAll(".wIconhourly");
 const addToSavesBtn = document.querySelector("#addToSavesBtn");
+const saveBoxesList = document.querySelector(".saveBoxesList");
+let dataLoc;
+let dataTemp;
+let dataWind;
+let dataHumidity;
+let dataStatus;
 
 //creating a map for raddar 
 
@@ -120,29 +126,11 @@ locSearchBtn.addEventListener("click", async () => {
 
   // saving data to mark box
 
-  dataLoc = wData.location.country + " / " + wData.location.name;
+  dataLoc = wData.location.name;
   dataTemp = wData.current.temp_c + "°";
   dataWind = "Wind   " + wData.current.wind_kph + " km/h";
   dataHumidity = "Humidity   " + wData.current.humidity + " %";
   dataStatus = wData.current.condition.text;
-
-  addToSavesBtn.addEventListener("click", async () => {
-
-    alert("location saved to mark box")
-    
-    const data = {dataLoc,dataTemp,dataWind,dataHumidity,dataStatus}
-    const options = {
-      method : "POST",
-      headers : {
-        "Content-type" : "application/json"
-      },
-      body : JSON.stringify(data)
-    }
-    const responseData = await fetch('/api',options);
-    const dataMark = await responseData.json()
-    
-    console.log(dataMark)
-  });
 
   marker.setLatLng([wData.location.lat, wData.location.lon]);
   map.setView([wData.location.lat, wData.location.lon], 11)
@@ -2575,6 +2563,14 @@ locationNameInput.addEventListener('keydown', async (event) => {
       console.log("can't find air quality in this location");
     }
 
+    // saving data to mark box
+
+    dataLoc = wData.location.name;
+    dataTemp = wData.current.temp_c + "°";
+    dataWind = "Wind   " + wData.current.wind_kph + " km/h";
+    dataHumidity = "Humidity   " + wData.current.humidity + " %";
+    dataStatus = wData.current.condition.text;
+
     marker.setLatLng([wData.location.lat, wData.location.lon]);
     map.setView([wData.location.lat, wData.location.lon], 11)
     const popupContent = `today has a ${wData.current.condition.text} weather and temperature feels like ${wData.current.temp_c}° C an the wind is ${wData.current.wind_kph} km/h ,visibility is ${wData.current.vis_km} km and humidity feels like ${wData.current.humidity} %`;
@@ -4821,6 +4817,14 @@ locSearchBtn2.addEventListener("click", async () => {
   const wData = await wResponse.json();
   locationText.textContent = wData.location.country + " / " + wData.location.name;
   tempText.innerHTML = wData.current.temp_c + "°";
+
+  // saving data to mark box
+
+  dataLoc = wData.location.name;
+  dataTemp = wData.current.temp_c + "°";
+  dataWind = "Wind   " + wData.current.wind_kph + " km/h";
+  dataHumidity = "Humidity   " + wData.current.humidity + " %";
+  dataStatus = wData.current.condition.text;
 
   statusExplaination.textContent = wData.current.condition.text;
   windText.textContent = "Wind   " + wData.current.wind_kph + " km/h"
@@ -7091,6 +7095,14 @@ locationNameInput2.addEventListener('keydown', async (event) => {
     const wData = await wResponse.json();
     locationText.textContent = wData.location.country + " / " + wData.location.name;
     tempText.innerHTML = wData.current.temp_c + "°";
+
+    // saving data to mark box
+
+    dataLoc = wData.location.name;
+    dataTemp = wData.current.temp_c + "°";
+    dataWind = "Wind   " + wData.current.wind_kph + " km/h";
+    dataHumidity = "Humidity   " + wData.current.humidity + " %";
+    dataStatus = wData.current.condition.text;
 
     marker.setLatLng([wData.location.lat, wData.location.lon]);
     map.setView([wData.location.lat, wData.location.lon], 11)
@@ -9467,3 +9479,61 @@ moveFavoritePannelBtn.addEventListener("click", () => {
 markBoxBtn.addEventListener("click", () => {
   favoritesPannel.style.transform = "translateX(15%)"
 })
+
+//create a li and save to mark box
+
+addToSavesBtn.addEventListener("click", async () => {
+
+  alert("location saved to mark box")
+
+  const data = { dataLoc, dataTemp, dataWind, dataHumidity, dataStatus }
+  const options = {
+    method: "POST",
+    headers: {
+      "Content-type": "application/json"
+    },
+    body: JSON.stringify(data)
+  }
+  const responseData = await fetch('/api', options);
+
+  // show all data in for reload mark box
+
+  /*const getResponseData = await fetch("/getApi");
+  const getDataBase = await getResponseData.json()
+
+  for (let items in getDataBase.allData) {
+
+    let saveLi = document.createElement("li");
+    let saveLiLoc = document.createElement("p");
+    let saveLiTemp = document.createElement("p");
+    let saveLiWind = document.createElement("p");
+    let saveLiHumidity = document.createElement("p");
+    let saveLiCondition = document.createElement("p");
+    saveLi.classList.add("saveLiStyle")
+    saveLiLoc.classList.add("saveLiParaStyle")
+    saveLiTemp.classList.add("saveLiParaStyle")
+    saveLiWind.classList.add("saveLiParaStyle")
+    saveLiHumidity.classList.add("saveLiParaStyle")
+    saveLiCondition.classList.add("saveLiParaStyle")
+
+    let saveLiLocText = getDataBase.allData[items].dataLoc;
+    let saveLiTempText = getDataBase.allData[items].dataTemp + "°";
+    let saveLiWindText = "Wind  " + getDataBase.allData[items].dataWind;
+    let saveLiHumidityText = "Humidity  " + getDataBase.allData[items].dataHumidity;
+    let saveLiConditionText = getDataBase.allData[items].dataStatus;
+
+    saveLiLoc.textContent = saveLiLocText;
+    saveLiTemp.textContent = saveLiTempText;
+    saveLiWind.textContent = saveLiWindText;
+    saveLiHumidity.textContent = saveLiHumidityText;
+    saveLiCondition.textContent = saveLiConditionText;
+    
+    saveLi.appendChild(saveLiLoc);
+    saveLi.appendChild(saveLiTemp);
+    saveLi.appendChild(saveLiWind);
+    saveLi.appendChild(saveLiHumidity);
+    saveLi.appendChild(saveLiCondition);
+
+    saveBoxesList.appendChild(saveLi);
+  }*/
+});

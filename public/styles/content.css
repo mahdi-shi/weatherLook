@@ -762,24 +762,49 @@
     color: white;
     font-weight: bold;
     font-size: .9em;
-    margin-left: 15px;    
+    margin-left: 15px;
 }
 
 .con .forecast .favoritesPannel .saveBoxesList li p:nth-child(1) {
     margin: 15px;
 }
+
 .con .forecast .favoritesPannel .saveBoxesList li p:nth-child(2) {
     margin-left: 15px;
     font-size: 2em;
     margin-top: -10px;
 }
+
 .con .forecast .favoritesPannel .saveBoxesList li p:nth-child(3) {
     margin-top: -15px;
 }
+
 .con .forecast .favoritesPannel .saveBoxesList li p:nth-child(4) {
     margin-top: -15px;
 }
+
 .con .forecast .favoritesPannel .saveBoxesList li p:nth-child(5) {
     margin-bottom: -15px;
     transform: translateY(10px);
+}
+
+
+
+.saveLiStyle {
+    width: 200px;
+    height: 200px;
+    border: 2px solid rgb(187, 187, 187);
+    display: inline-block;
+    list-style: none;
+    border-radius: 5px;
+    margin: 5px;
+    transform: translateX(50px);
+    margin-top: 20px;
+}
+
+.saveLiParaStyle {
+    color: white;
+    font-weight: bold;
+    font-size: .6em;
+    margin-left: 15px;
 }

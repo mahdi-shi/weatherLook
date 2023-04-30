@@ -56,3 +56,15 @@ app.post("/api",async(req,res) => {
   })
 
 })
+
+app.get("/getApi",async(req,res) => {
+
+  console.log("ALL data got it");
+  const allData = DataBase.getAllData();
+
+  res.json({
+    status : "ok",
+    allData : allData
+  })
+
+})
