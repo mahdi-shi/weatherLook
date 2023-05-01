@@ -9632,12 +9632,13 @@ const deleteMarksBtn = document.querySelector("#deleteMarksBtn");
 
 deleteMarksBtn.addEventListener("click", async () => {
 
-  const getResponseData = await fetch("/getApi");
-  const getDataBase = await getResponseData.json()
-
+  //remove from DOM
   if (saveBoxesList.hasChildNodes()) {
     for (let i = 0; i < saveBoxesList.children.length; i++) {
       saveBoxesList.removeChild(saveBoxesList.children[i])
     }
   }
+
+  //remove from DataBase
+  const deleteResponse = await fetch("/deleteData");
 })

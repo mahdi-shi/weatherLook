@@ -68,3 +68,15 @@ app.get("/getApi",async(req,res) => {
   })
 
 })
+
+app.get("/deleteData",async(req,res) => {
+
+  DataBase.remove({}, { multi: true }, function(err, numDeleted) {
+    console.log('Deleted', numDeleted, 'user(s)');
+  });
+
+  res.json({
+    status : "ok",
+  })
+
+})
