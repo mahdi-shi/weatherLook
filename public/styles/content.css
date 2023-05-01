@@ -532,7 +532,7 @@
 .con .forecast .hourly .hours li span {
     position: relative;
     height: 100%;
-    width: 120px;
+    width: 130px;
     background-color: transparent;
     user-select: none;
     display: inline-block;
@@ -798,6 +798,10 @@
     margin: 5px;
     transform: translateX(50px);
     margin-top: 20px;
+    transition: 0.4s;
+}
+.saveLiStyle:hover {
+    background-color: #474f68;
 }
 
 .saveLiParaStyle {
