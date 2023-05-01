@@ -2601,7 +2601,7 @@ locationNameInput.addEventListener('keydown', async (event) => {
     const getResponseData = await fetch("/getApi");
     const getDataBase = await getResponseData.json()
 
-    for (let items in getDataBase.allData) {
+    /*for (let items in getDataBase.allData) {
 
       let saveLi = document.createElement("li");
       let saveLiLoc = document.createElement("p");
@@ -2635,7 +2635,7 @@ locationNameInput.addEventListener('keydown', async (event) => {
       saveLi.appendChild(saveLiCondition);
 
       saveBoxesList.appendChild(saveLi);
-    }
+    }*/
 
     console.log(airData)
     try {
@@ -4929,42 +4929,6 @@ locSearchBtn2.addEventListener("click", async () => {
   const getResponseData = await fetch("/getApi");
   const getDataBase = await getResponseData.json()
 
-  for (let items in getDataBase.allData) {
-
-    let saveLi = document.createElement("li");
-    let saveLiLoc = document.createElement("p");
-    let saveLiTemp = document.createElement("p");
-    let saveLiWind = document.createElement("p");
-    let saveLiHumidity = document.createElement("p");
-    let saveLiCondition = document.createElement("p");
-    saveLi.classList.add("saveLiStyle")
-    saveLiLoc.classList.add("saveLiParaStyle")
-    saveLiTemp.classList.add("saveLiParaStyle")
-    saveLiWind.classList.add("saveLiParaStyle")
-    saveLiHumidity.classList.add("saveLiParaStyle")
-    saveLiCondition.classList.add("saveLiParaStyle")
-
-    let saveLiLocText = getDataBase.allData[items].dataLoc;
-    let saveLiTempText = getDataBase.allData[items].dataTemp + "°";
-    let saveLiWindText = "Wind  " + getDataBase.allData[items].dataWind;
-    let saveLiHumidityText = "Humidity  " + getDataBase.allData[items].dataHumidity;
-    let saveLiConditionText = getDataBase.allData[items].dataStatus;
-
-    saveLiLoc.textContent = saveLiLocText;
-    saveLiTemp.textContent = saveLiTempText;
-    saveLiWind.textContent = saveLiWindText;
-    saveLiHumidity.textContent = saveLiHumidityText;
-    saveLiCondition.textContent = saveLiConditionText;
-
-    saveLi.appendChild(saveLiLoc);
-    saveLi.appendChild(saveLiTemp);
-    saveLi.appendChild(saveLiWind);
-    saveLi.appendChild(saveLiHumidity);
-    saveLi.appendChild(saveLiCondition);
-
-    saveBoxesList.appendChild(saveLi);
-  }
-
   statusBgImage.classList.add("refreshBgImage");
   backgroundStatusCover.classList.add("refreshBgImageCover");
 
@@ -7236,42 +7200,6 @@ locationNameInput2.addEventListener('keydown', async (event) => {
 
     const getResponseData = await fetch("/getApi");
     const getDataBase = await getResponseData.json()
-
-    for (let items in getDataBase.allData) {
-
-      let saveLi = document.createElement("li");
-      let saveLiLoc = document.createElement("p");
-      let saveLiTemp = document.createElement("p");
-      let saveLiWind = document.createElement("p");
-      let saveLiHumidity = document.createElement("p");
-      let saveLiCondition = document.createElement("p");
-      saveLi.classList.add("saveLiStyle")
-      saveLiLoc.classList.add("saveLiParaStyle")
-      saveLiTemp.classList.add("saveLiParaStyle")
-      saveLiWind.classList.add("saveLiParaStyle")
-      saveLiHumidity.classList.add("saveLiParaStyle")
-      saveLiCondition.classList.add("saveLiParaStyle")
-
-      let saveLiLocText = getDataBase.allData[items].dataLoc;
-      let saveLiTempText = getDataBase.allData[items].dataTemp + "°";
-      let saveLiWindText = "Wind  " + getDataBase.allData[items].dataWind;
-      let saveLiHumidityText = "Humidity  " + getDataBase.allData[items].dataHumidity;
-      let saveLiConditionText = getDataBase.allData[items].dataStatus;
-
-      saveLiLoc.textContent = saveLiLocText;
-      saveLiTemp.textContent = saveLiTempText;
-      saveLiWind.textContent = saveLiWindText;
-      saveLiHumidity.textContent = saveLiHumidityText;
-      saveLiCondition.textContent = saveLiConditionText;
-
-      saveLi.appendChild(saveLiLoc);
-      saveLi.appendChild(saveLiTemp);
-      saveLi.appendChild(saveLiWind);
-      saveLi.appendChild(saveLiHumidity);
-      saveLi.appendChild(saveLiCondition);
-
-      saveBoxesList.appendChild(saveLi);
-    }
 
     degree.addEventListener("click", () => {
       if (degreeStatus == true) {
@@ -9660,16 +9588,8 @@ addToSavesBtn.addEventListener("click", async () => {
   }
   const responseData = await fetch('/api', options);
 
-  const wResponse = await fetch(`https://api.weatherapi.com/v1/forecast.json?key=7f4183b49af04a2e95e120051231103&q=${locationNameInput.value}&days=10`)
+  const wResponse = await fetch(`https://api.weatherapi.com/v1/forecast.json?key=7f4183b49af04a2e95e120051231103&q=${locationText.textContent}&days=10`)
   const wData = await wResponse.json();
-
-  locationText.textContent = wData.location.country + " / " + wData.location.name;
-  tempText.innerHTML = wData.current.temp_c + "°";
-  statusExplaination.textContent = wData.current.condition.text;
-  windText.textContent = "Wind   " + wData.current.wind_kph + " km/h";
-  visibilityText.textContent = "Visibility   " + wData.current.vis_km + " km";
-  humidityText.textContent = "Humidity   " + wData.current.humidity + " %";
-  feelsLike.textContent = "Feels like  " + wData.current.feelslike_c;
 
   let saveLi = document.createElement("li");
   let saveLiLoc = document.createElement("p");
@@ -9692,10 +9612,16 @@ addToSavesBtn.addEventListener("click", async () => {
   saveLiCondition.classList.add("saveLiParaStyle");
 
   saveLiLoc.textContent = saveLiLocText;
-  saveLiTempText.textContent = saveLiTemp
-  saveLiWindText.textContent = saveLiWind
-  saveLiHumidityText.textContent = saveLiHumidity
-  saveLiConditionText.textContent = saveLiCondition
+  saveLiTemp.textContent = saveLiTempText;
+  saveLiWind.textContent = saveLiWindText;
+  saveLiHumidity.textContent = saveLiHumidityText;
+  saveLiCondition.textContent = saveLiConditionText;
 
-  
+  saveLi.appendChild(saveLiLoc)
+  saveLi.appendChild(saveLiTemp)
+  saveLi.appendChild(saveLiWind)
+  saveLi.appendChild(saveLiHumidity)
+  saveLi.appendChild(saveLiCondition)
+
+  saveBoxesList.appendChild(saveLi)
 });
