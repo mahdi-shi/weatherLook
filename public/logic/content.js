@@ -2601,7 +2601,7 @@ locationNameInput.addEventListener('keydown', async (event) => {
     const getResponseData = await fetch("/getApi");
     const getDataBase = await getResponseData.json()
 
-    /*for (let items in getDataBase.allData) {
+    for (let items in getDataBase.allData) {
 
       let saveLi = document.createElement("li");
       let saveLiLoc = document.createElement("p");
@@ -2635,7 +2635,7 @@ locationNameInput.addEventListener('keydown', async (event) => {
       saveLi.appendChild(saveLiCondition);
 
       saveBoxesList.appendChild(saveLi);
-    }*/
+    }
 
     console.log(airData)
     try {
@@ -9625,3 +9625,19 @@ addToSavesBtn.addEventListener("click", async () => {
 
   saveBoxesList.appendChild(saveLi)
 });
+
+//delete all data from database and mark box
+
+const deleteMarksBtn = document.querySelector("#deleteMarksBtn");
+
+deleteMarksBtn.addEventListener("click", async () => {
+
+  const getResponseData = await fetch("/getApi");
+  const getDataBase = await getResponseData.json()
+
+  if (saveBoxesList.hasChildNodes()) {
+    for (let i = 0; i < saveBoxesList.children.length; i++) {
+      saveBoxesList.removeChild(saveBoxesList.children[i])
+    }
+  }
+})

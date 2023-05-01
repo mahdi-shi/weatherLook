@@ -532,7 +532,7 @@
 .con .forecast .hourly .hours li span {
     position: relative;
     height: 100%;
-    width: 130px;
+    width: 120px;
     background-color: transparent;
     user-select: none;
     display: inline-block;
@@ -805,4 +805,16 @@
     font-weight: bold;
     font-size: .6em;
     margin-left: 15px;
+}
+
+.con .forecast .favoritesPannel span{
+    position: absolute;
+    left: 90%;
+    top: 6%;
+}
+.con .forecast .favoritesPannel span svg{
+    transition: 0.5s;
+}
+.con .forecast .favoritesPannel span:hover svg{
+    fill: white;
 }
