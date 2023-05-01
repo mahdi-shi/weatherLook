@@ -132,6 +132,47 @@ locSearchBtn.addEventListener("click", async () => {
   dataHumidity = "Humidity   " + wData.current.humidity + " %";
   dataStatus = wData.current.condition.text;
 
+  // show all data in for reload mark box
+
+  const getResponseData = await fetch("/getApi");
+  const getDataBase = await getResponseData.json()
+
+  for (let items in getDataBase.allData) {
+
+    let saveLi = document.createElement("li");
+    let saveLiLoc = document.createElement("p");
+    let saveLiTemp = document.createElement("p");
+    let saveLiWind = document.createElement("p");
+    let saveLiHumidity = document.createElement("p");
+    let saveLiCondition = document.createElement("p");
+    saveLi.classList.add("saveLiStyle")
+    saveLiLoc.classList.add("saveLiParaStyle")
+    saveLiTemp.classList.add("saveLiParaStyle")
+    saveLiWind.classList.add("saveLiParaStyle")
+    saveLiHumidity.classList.add("saveLiParaStyle")
+    saveLiCondition.classList.add("saveLiParaStyle")
+
+    let saveLiLocText = getDataBase.allData[items].dataLoc;
+    let saveLiTempText = getDataBase.allData[items].dataTemp + "°";
+    let saveLiWindText = "Wind  " + getDataBase.allData[items].dataWind;
+    let saveLiHumidityText = "Humidity  " + getDataBase.allData[items].dataHumidity;
+    let saveLiConditionText = getDataBase.allData[items].dataStatus;
+
+    saveLiLoc.textContent = saveLiLocText;
+    saveLiTemp.textContent = saveLiTempText;
+    saveLiWind.textContent = saveLiWindText;
+    saveLiHumidity.textContent = saveLiHumidityText;
+    saveLiCondition.textContent = saveLiConditionText;
+
+    saveLi.appendChild(saveLiLoc);
+    saveLi.appendChild(saveLiTemp);
+    saveLi.appendChild(saveLiWind);
+    saveLi.appendChild(saveLiHumidity);
+    saveLi.appendChild(saveLiCondition);
+
+    saveBoxesList.appendChild(saveLi);
+  }
+
   marker.setLatLng([wData.location.lat, wData.location.lon]);
   map.setView([wData.location.lat, wData.location.lon], 11)
   const popupContent = `today has a ${wData.current.condition.text} weather and temperature feels like ${wData.current.temp_c}° C an the wind is ${wData.current.wind_kph} km/h ,visibility is ${wData.current.vis_km} km and humidity feels like ${wData.current.humidity} %`;
@@ -2555,6 +2596,47 @@ locationNameInput.addEventListener('keydown', async (event) => {
     const airResponse = await fetch(`https://api.openaq.org/v2/latest?limit=200&page=1&offset=2&sort=desc&coordinates=${wData.location.lat}%2C${wData.location.lon}&radius=1000&order_by=lastUpdated&dumpRaw=false`)
     const airData = await airResponse.json();
 
+    // show all data in for reload mark box
+
+    const getResponseData = await fetch("/getApi");
+    const getDataBase = await getResponseData.json()
+
+    for (let items in getDataBase.allData) {
+
+      let saveLi = document.createElement("li");
+      let saveLiLoc = document.createElement("p");
+      let saveLiTemp = document.createElement("p");
+      let saveLiWind = document.createElement("p");
+      let saveLiHumidity = document.createElement("p");
+      let saveLiCondition = document.createElement("p");
+      saveLi.classList.add("saveLiStyle")
+      saveLiLoc.classList.add("saveLiParaStyle")
+      saveLiTemp.classList.add("saveLiParaStyle")
+      saveLiWind.classList.add("saveLiParaStyle")
+      saveLiHumidity.classList.add("saveLiParaStyle")
+      saveLiCondition.classList.add("saveLiParaStyle")
+
+      let saveLiLocText = getDataBase.allData[items].dataLoc;
+      let saveLiTempText = getDataBase.allData[items].dataTemp + "°";
+      let saveLiWindText = "Wind  " + getDataBase.allData[items].dataWind;
+      let saveLiHumidityText = "Humidity  " + getDataBase.allData[items].dataHumidity;
+      let saveLiConditionText = getDataBase.allData[items].dataStatus;
+
+      saveLiLoc.textContent = saveLiLocText;
+      saveLiTemp.textContent = saveLiTempText;
+      saveLiWind.textContent = saveLiWindText;
+      saveLiHumidity.textContent = saveLiHumidityText;
+      saveLiCondition.textContent = saveLiConditionText;
+
+      saveLi.appendChild(saveLiLoc);
+      saveLi.appendChild(saveLiTemp);
+      saveLi.appendChild(saveLiWind);
+      saveLi.appendChild(saveLiHumidity);
+      saveLi.appendChild(saveLiCondition);
+
+      saveBoxesList.appendChild(saveLi);
+    }
+
     console.log(airData)
     try {
       airQualityText.textContent = "Air quality   " + airData.results[0].measurements[0].value;
@@ -4842,6 +4924,47 @@ locSearchBtn2.addEventListener("click", async () => {
   }
   locationNameInput2.value = "";
 
+  // show all data in for reload mark box
+
+  const getResponseData = await fetch("/getApi");
+  const getDataBase = await getResponseData.json()
+
+  for (let items in getDataBase.allData) {
+
+    let saveLi = document.createElement("li");
+    let saveLiLoc = document.createElement("p");
+    let saveLiTemp = document.createElement("p");
+    let saveLiWind = document.createElement("p");
+    let saveLiHumidity = document.createElement("p");
+    let saveLiCondition = document.createElement("p");
+    saveLi.classList.add("saveLiStyle")
+    saveLiLoc.classList.add("saveLiParaStyle")
+    saveLiTemp.classList.add("saveLiParaStyle")
+    saveLiWind.classList.add("saveLiParaStyle")
+    saveLiHumidity.classList.add("saveLiParaStyle")
+    saveLiCondition.classList.add("saveLiParaStyle")
+
+    let saveLiLocText = getDataBase.allData[items].dataLoc;
+    let saveLiTempText = getDataBase.allData[items].dataTemp + "°";
+    let saveLiWindText = "Wind  " + getDataBase.allData[items].dataWind;
+    let saveLiHumidityText = "Humidity  " + getDataBase.allData[items].dataHumidity;
+    let saveLiConditionText = getDataBase.allData[items].dataStatus;
+
+    saveLiLoc.textContent = saveLiLocText;
+    saveLiTemp.textContent = saveLiTempText;
+    saveLiWind.textContent = saveLiWindText;
+    saveLiHumidity.textContent = saveLiHumidityText;
+    saveLiCondition.textContent = saveLiConditionText;
+
+    saveLi.appendChild(saveLiLoc);
+    saveLi.appendChild(saveLiTemp);
+    saveLi.appendChild(saveLiWind);
+    saveLi.appendChild(saveLiHumidity);
+    saveLi.appendChild(saveLiCondition);
+
+    saveBoxesList.appendChild(saveLi);
+  }
+
   statusBgImage.classList.add("refreshBgImage");
   backgroundStatusCover.classList.add("refreshBgImageCover");
 
@@ -7108,6 +7231,47 @@ locationNameInput2.addEventListener('keydown', async (event) => {
     map.setView([wData.location.lat, wData.location.lon], 11)
     const popupContent = `today has a ${wData.current.condition.text} weather and temperature feels like ${wData.current.temp_c}° C an the wind is ${wData.current.wind_kph} km/h ,visibility is ${wData.current.vis_km} km and humidity feels like ${wData.current.humidity} %`;
     marker.bindPopup(popupContent)
+
+    // show all data in for reload mark box
+
+    const getResponseData = await fetch("/getApi");
+    const getDataBase = await getResponseData.json()
+
+    for (let items in getDataBase.allData) {
+
+      let saveLi = document.createElement("li");
+      let saveLiLoc = document.createElement("p");
+      let saveLiTemp = document.createElement("p");
+      let saveLiWind = document.createElement("p");
+      let saveLiHumidity = document.createElement("p");
+      let saveLiCondition = document.createElement("p");
+      saveLi.classList.add("saveLiStyle")
+      saveLiLoc.classList.add("saveLiParaStyle")
+      saveLiTemp.classList.add("saveLiParaStyle")
+      saveLiWind.classList.add("saveLiParaStyle")
+      saveLiHumidity.classList.add("saveLiParaStyle")
+      saveLiCondition.classList.add("saveLiParaStyle")
+
+      let saveLiLocText = getDataBase.allData[items].dataLoc;
+      let saveLiTempText = getDataBase.allData[items].dataTemp + "°";
+      let saveLiWindText = "Wind  " + getDataBase.allData[items].dataWind;
+      let saveLiHumidityText = "Humidity  " + getDataBase.allData[items].dataHumidity;
+      let saveLiConditionText = getDataBase.allData[items].dataStatus;
+
+      saveLiLoc.textContent = saveLiLocText;
+      saveLiTemp.textContent = saveLiTempText;
+      saveLiWind.textContent = saveLiWindText;
+      saveLiHumidity.textContent = saveLiHumidityText;
+      saveLiCondition.textContent = saveLiConditionText;
+
+      saveLi.appendChild(saveLiLoc);
+      saveLi.appendChild(saveLiTemp);
+      saveLi.appendChild(saveLiWind);
+      saveLi.appendChild(saveLiHumidity);
+      saveLi.appendChild(saveLiCondition);
+
+      saveBoxesList.appendChild(saveLi);
+    }
 
     degree.addEventListener("click", () => {
       if (degreeStatus == true) {
@@ -9496,44 +9660,42 @@ addToSavesBtn.addEventListener("click", async () => {
   }
   const responseData = await fetch('/api', options);
 
-  // show all data in for reload mark box
+  const wResponse = await fetch(`https://api.weatherapi.com/v1/forecast.json?key=7f4183b49af04a2e95e120051231103&q=${locationNameInput.value}&days=10`)
+  const wData = await wResponse.json();
 
-  /*const getResponseData = await fetch("/getApi");
-  const getDataBase = await getResponseData.json()
+  locationText.textContent = wData.location.country + " / " + wData.location.name;
+  tempText.innerHTML = wData.current.temp_c + "°";
+  statusExplaination.textContent = wData.current.condition.text;
+  windText.textContent = "Wind   " + wData.current.wind_kph + " km/h";
+  visibilityText.textContent = "Visibility   " + wData.current.vis_km + " km";
+  humidityText.textContent = "Humidity   " + wData.current.humidity + " %";
+  feelsLike.textContent = "Feels like  " + wData.current.feelslike_c;
 
-  for (let items in getDataBase.allData) {
+  let saveLi = document.createElement("li");
+  let saveLiLoc = document.createElement("p");
+  let saveLiTemp = document.createElement("p");
+  let saveLiWind = document.createElement("p");
+  let saveLiHumidity = document.createElement("p");
+  let saveLiCondition = document.createElement("p");
 
-    let saveLi = document.createElement("li");
-    let saveLiLoc = document.createElement("p");
-    let saveLiTemp = document.createElement("p");
-    let saveLiWind = document.createElement("p");
-    let saveLiHumidity = document.createElement("p");
-    let saveLiCondition = document.createElement("p");
-    saveLi.classList.add("saveLiStyle")
-    saveLiLoc.classList.add("saveLiParaStyle")
-    saveLiTemp.classList.add("saveLiParaStyle")
-    saveLiWind.classList.add("saveLiParaStyle")
-    saveLiHumidity.classList.add("saveLiParaStyle")
-    saveLiCondition.classList.add("saveLiParaStyle")
+  let saveLiLocText = wData.location.name;
+  let saveLiTempText = wData.current.temp_c + "°";
+  let saveLiWindText = "Wind   " + wData.current.wind_kph + " km/h";
+  let saveLiHumidityText = "Humidity   " + wData.current.humidity + " %"
+  let saveLiConditionText = wData.current.condition.text;
 
-    let saveLiLocText = getDataBase.allData[items].dataLoc;
-    let saveLiTempText = getDataBase.allData[items].dataTemp + "°";
-    let saveLiWindText = "Wind  " + getDataBase.allData[items].dataWind;
-    let saveLiHumidityText = "Humidity  " + getDataBase.allData[items].dataHumidity;
-    let saveLiConditionText = getDataBase.allData[items].dataStatus;
+  saveLi.classList.add("saveLiStyle");
+  saveLiLoc.classList.add("saveLiParaStyle");
+  saveLiTemp.classList.add("saveLiParaStyle");
+  saveLiWind.classList.add("saveLiParaStyle");
+  saveLiHumidity.classList.add("saveLiParaStyle");
+  saveLiCondition.classList.add("saveLiParaStyle");
 
-    saveLiLoc.textContent = saveLiLocText;
-    saveLiTemp.textContent = saveLiTempText;
-    saveLiWind.textContent = saveLiWindText;
-    saveLiHumidity.textContent = saveLiHumidityText;
-    saveLiCondition.textContent = saveLiConditionText;
-    
-    saveLi.appendChild(saveLiLoc);
-    saveLi.appendChild(saveLiTemp);
-    saveLi.appendChild(saveLiWind);
-    saveLi.appendChild(saveLiHumidity);
-    saveLi.appendChild(saveLiCondition);
+  saveLiLoc.textContent = saveLiLocText;
+  saveLiTempText.textContent = saveLiTemp
+  saveLiWindText.textContent = saveLiWind
+  saveLiHumidityText.textContent = saveLiHumidity
+  saveLiConditionText.textContent = saveLiCondition
 
-    saveBoxesList.appendChild(saveLi);
-  }*/
+  
 });

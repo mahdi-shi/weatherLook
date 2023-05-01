@@ -1,2 +1,4 @@
-{"dataLoc":"Paris","dataTemp":"17°","dataWind":"Wind   3.6 km/h","dataHumidity":"Humidity   55 %","dataStatus":"Sunny","_id":"n1m5lOWUJchlRK8F"}
-{"dataLoc":"Berlin","dataTemp":"14°","dataWind":"Wind   3.6 km/h","dataHumidity":"Humidity   36 %","dataStatus":"Sunny","_id":"HTj7JmZWS95v2LqW"}
+{"dataLoc":"Tehran","dataTemp":"22°","dataWind":"Wind   22 km/h","dataHumidity":"Humidity   23 %","dataStatus":"Partly cloudy","_id":"FunwBJm3ybJNShyA"}
+{"dataLoc":"Paris","dataTemp":"12°","dataWind":"Wind   6.8 km/h","dataHumidity":"Humidity   82 %","dataStatus":"Partly cloudy","_id":"O3XLn8YLaAfVUnIN"}
+{"dataLoc":"Tokyo","dataTemp":"21°","dataWind":"Wind   19.1 km/h","dataHumidity":"Humidity   56 %","dataStatus":"Partly cloudy","_id":"Vjt4B8MOX0oagtmd"}
+{"dataLoc":"London","dataTemp":"11°","dataWind":"Wind   13 km/h","dataHumidity":"Humidity   87 %","dataStatus":"Partly cloudy","_id":"YsdRhmc4UMhQiXf1"}
