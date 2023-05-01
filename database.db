@@ -1,16 +1,6 @@
-{"dataLoc":"Rasht","dataTemp":"19°","dataWind":"Wind   6.8 km/h","dataHumidity":"Humidity   83 %","dataStatus":"Partly cloudy","_id":"75v0rOpbC6SaTpfN"}
-{"dataLoc":"Berlin","dataTemp":"15°","dataWind":"Wind   15.1 km/h","dataHumidity":"Humidity   44 %","dataStatus":"Sunny","_id":"PSBCssjFkqnUuDVD"}
-{"dataLoc":"London","dataTemp":"13°","dataWind":"Wind   13 km/h","dataHumidity":"Humidity   82 %","dataStatus":"Partly cloudy","_id":"XMeNKP6PSAOalorv"}
-{"dataLoc":"Tehran","dataTemp":"24°","dataWind":"Wind   22 km/h","dataHumidity":"Humidity   19 %","dataStatus":"Partly cloudy","_id":"gtQPrSRbvZxtRepE"}
-{"dataLoc":"Paris","dataTemp":"14°","dataWind":"Wind   15.1 km/h","dataHumidity":"Humidity   72 %","dataStatus":"Light rain","_id":"xiJsrCjCK9RBWrQl"}
-{"$$deleted":true,"_id":"75v0rOpbC6SaTpfN"}
-{"$$deleted":true,"_id":"PSBCssjFkqnUuDVD"}
-{"$$deleted":true,"_id":"XMeNKP6PSAOalorv"}
-{"$$deleted":true,"_id":"gtQPrSRbvZxtRepE"}
-{"$$deleted":true,"_id":"xiJsrCjCK9RBWrQl"}
 {"dataLoc":"Paris","dataTemp":"14°","dataWind":"Wind   16.9 km/h","dataHumidity":"Humidity   77 %","dataStatus":"Light rain","_id":"Fi8Rbwj7WuNCw3d1"}
 {"dataLoc":"London","dataTemp":"14°","dataWind":"Wind   13 km/h","dataHumidity":"Humidity   72 %","dataStatus":"Partly cloudy","_id":"GBN2ALM4Ppy92f1Y"}
-{"dataLoc":"London","dataTemp":"14°","dataWind":"Wind   13 km/h","dataHumidity":"Humidity   72 %","dataStatus":"Partly cloudy","_id":"ZYn6m25c3hse67Y7"}
-{"dataLoc":"Tokyo","dataTemp":"19°","dataWind":"Wind   19.1 km/h","dataHumidity":"Humidity   73 %","dataStatus":"Partly cloudy","_id":"Q0HCIaPsdtPi2iRL"}
-{"dataLoc":"New York","dataTemp":"9.4°","dataWind":"Wind   6.8 km/h","dataHumidity":"Humidity   74 %","dataStatus":"Overcast","_id":"LBKRpkRZriJVMfyW"}
 {"dataLoc":"Berlin","dataTemp":"15°","dataWind":"Wind   16.9 km/h","dataHumidity":"Humidity   44 %","dataStatus":"Sunny","_id":"GKUQpUxVWW8Gv3ik"}
+{"dataLoc":"New York","dataTemp":"9.4°","dataWind":"Wind   6.8 km/h","dataHumidity":"Humidity   74 %","dataStatus":"Overcast","_id":"LBKRpkRZriJVMfyW"}
+{"dataLoc":"Tokyo","dataTemp":"19°","dataWind":"Wind   19.1 km/h","dataHumidity":"Humidity   73 %","dataStatus":"Partly cloudy","_id":"Q0HCIaPsdtPi2iRL"}
+{"dataLoc":"London","dataTemp":"14°","dataWind":"Wind   13 km/h","dataHumidity":"Humidity   72 %","dataStatus":"Partly cloudy","_id":"ZYn6m25c3hse67Y7"}
