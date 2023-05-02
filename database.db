@@ -4,3 +4,27 @@
 {"dataLoc":"New York","dataTemp":"9.4°","dataWind":"Wind   6.8 km/h","dataHumidity":"Humidity   74 %","dataStatus":"Overcast","_id":"LBKRpkRZriJVMfyW"}
 {"dataLoc":"Tokyo","dataTemp":"19°","dataWind":"Wind   19.1 km/h","dataHumidity":"Humidity   73 %","dataStatus":"Partly cloudy","_id":"Q0HCIaPsdtPi2iRL"}
 {"dataLoc":"London","dataTemp":"14°","dataWind":"Wind   13 km/h","dataHumidity":"Humidity   72 %","dataStatus":"Partly cloudy","_id":"ZYn6m25c3hse67Y7"}
+{"dataLoc":"Tehran","dataTemp":"22°","dataWind":"Wind   25.9 km/h","dataHumidity":"Humidity   12 %","dataStatus":"Sunny","_id":"ZBfjZmxgyciBDG3P"}
+{"$$deleted":true,"_id":"Fi8Rbwj7WuNCw3d1"}
+{"$$deleted":true,"_id":"GBN2ALM4Ppy92f1Y"}
+{"$$deleted":true,"_id":"GKUQpUxVWW8Gv3ik"}
+{"$$deleted":true,"_id":"LBKRpkRZriJVMfyW"}
+{"$$deleted":true,"_id":"Q0HCIaPsdtPi2iRL"}
+{"$$deleted":true,"_id":"ZBfjZmxgyciBDG3P"}
+{"$$deleted":true,"_id":"ZYn6m25c3hse67Y7"}
+{"dataLoc":"Rasht","dataTemp":"19°","dataWind":"Wind   11.2 km/h","dataHumidity":"Humidity   64 %","dataStatus":"Partly cloudy","_id":"KiurTd3Wf9mqgFbu"}
+{"$$deleted":true,"_id":"KiurTd3Wf9mqgFbu"}
+{"dataLoc":"Rasht","dataTemp":"19°","dataWind":"Wind   11.2 km/h","dataHumidity":"Humidity   64 %","dataStatus":"Partly cloudy","_id":"SxhMqpeyc8aLTm9W"}
+{"dataLoc":"London","dataTemp":"12°","dataWind":"Wind   11.2 km/h","dataHumidity":"Humidity   77 %","dataStatus":"Partly cloudy","_id":"fCfqJnoP7hdlYyjU"}
+{"dataLoc":"Moscow","dataTemp":"12°","dataWind":"Wind   11.2 km/h","dataHumidity":"Humidity   35 %","dataStatus":"Sunny","_id":"9McHmbM53ZNPOetm"}
+{"dataLoc":"Paris","dataTemp":"10°","dataWind":"Wind   13 km/h","dataHumidity":"Humidity   94 %","dataStatus":"Overcast","_id":"HKpkcBk7nwkiZqaD"}
+{"dataLoc":"London","dataTemp":"12°","dataWind":"Wind   11.2 km/h","dataHumidity":"Humidity   77 %","dataStatus":"Partly cloudy","_id":"idJlFr0khbFe744Z"}
+{"$$deleted":true,"_id":"9McHmbM53ZNPOetm"}
+{"$$deleted":true,"_id":"HKpkcBk7nwkiZqaD"}
+{"$$deleted":true,"_id":"SxhMqpeyc8aLTm9W"}
+{"$$deleted":true,"_id":"fCfqJnoP7hdlYyjU"}
+{"$$deleted":true,"_id":"idJlFr0khbFe744Z"}
+{"dataLoc":"Tehran","dataTemp":"22°","dataWind":"Wind   19.1 km/h","dataHumidity":"Humidity   12 %","dataStatus":"Sunny","_id":"4h20cM3BooPkf0kD"}
+{"dataLoc":"Paris","dataTemp":"11°","dataWind":"Wind   11.2 km/h","dataHumidity":"Humidity   87 %","dataStatus":"Overcast","_id":"EHt0dSksOLh2ou2V"}
+{"dataLoc":"Moscow","dataTemp":"13°","dataWind":"Wind   3.6 km/h","dataHumidity":"Humidity   33 %","dataStatus":"Sunny","_id":"qXjjsZY9ArEb2vB2"}
+{"dataLoc":"Berlin","dataTemp":"14°","dataWind":"Wind   15.1 km/h","dataHumidity":"Humidity   67 %","dataStatus":"Partly cloudy","_id":"HW9TcNtlwggWtb4U"}

@@ -798,6 +798,7 @@
     margin: 5px;
     transform: translateX(50px);
     margin-top: 20px;
+    cursor: pointer;
     transition: 0.4s;
 }
 .saveLiStyle:hover {
