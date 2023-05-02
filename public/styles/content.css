@@ -800,7 +800,9 @@
     margin-top: 20px;
     cursor: pointer;
     transition: 0.4s;
+
 }
+
 .saveLiStyle:hover {
     background-color: #474f68;
 }
@@ -812,14 +814,16 @@
     margin-left: 15px;
 }
 
-.con .forecast .favoritesPannel span{
+.con .forecast .favoritesPannel span {
     position: absolute;
     left: 90%;
     top: 6%;
 }
-.con .forecast .favoritesPannel span svg{
+
+.con .forecast .favoritesPannel span svg {
     transition: 0.5s;
 }
-.con .forecast .favoritesPannel span:hover svg{
+
+.con .forecast .favoritesPannel span:hover svg {
     fill: white;
 }
