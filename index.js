@@ -7,7 +7,7 @@ import Datastore from 'nedb'
 const app = express();
 
 app.use(express.static('public'));
-app.use(express.json({limit: '1mb'}));
+app.use(express.json({ limit: '1mb' }));
 
 app.get('/products/:id', function (req, res, next) {
   res.json({ msg: 'This is CORS-enabled for all origins!' });
@@ -26,7 +26,7 @@ app.get("/weather/:latlon", async (req, res) => {
   const Lat = latlong[0];
   const Long = latlong[1];
 
-  const weatherResponse = await fetch(`https://api.weatherapi.com/v1/forecast.json?key=7f4183b49af04a2e95e120051231103&q=${Lat},${Long}`)
+  const weatherResponse = await fetch(`https://api.weatherapi.com/v1/forecast.json?key=7f4183b49af04a2e95e120051231103&q=${Lat},${Long}&days=7`)
     .catch(err => console.error("something went wrongoooooooo" + err));
   const weatherData = await weatherResponse.json();
 
@@ -47,36 +47,36 @@ app.get("/weather/:latlon", async (req, res) => {
 const DataBase = new Datastore('database.db');
 DataBase.loadDatabase();
 
-app.post("/api",async(req,res) => {
+app.post("/api", async (req, res) => {
   const data = req.body;
   console.log("i got a request");
   DataBase.insert(data)
   res.json({
-    status : "ok",
+    status: "ok",
   })
 
 })
 
-app.get("/getApi",async(req,res) => {
+app.get("/getApi", async (req, res) => {
 
   console.log("ALL data got it");
   const allData = DataBase.getAllData();
 
   res.json({
-    status : "ok",
-    allData : allData
+    status: "ok",
+    allData: allData
   })
 
 })
 
-app.get("/deleteData",async(req,res) => {
+app.get("/deleteData", async (req, res) => {
 
-  DataBase.remove({}, { multi: true }, function(err, numDeleted) {
+  DataBase.remove({}, { multi: true }, function (err, numDeleted) {
     console.log('Deleted', numDeleted, 'user(s)');
   });
 
   res.json({
-    status : "ok",
+    status: "ok",
   })
 
 })
