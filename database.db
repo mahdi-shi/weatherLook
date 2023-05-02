@@ -3,7 +3,7 @@
 {"dataLoc":"Paris","dataTemp":"11°","dataWind":"Wind   11.2 km/h","dataHumidity":"Humidity   87 %","dataStatus":"Overcast","_id":"EHt0dSksOLh2ou2V"}
 {"dataLoc":"Berlin","dataTemp":"14°","dataWind":"Wind   15.1 km/h","dataHumidity":"Humidity   67 %","dataStatus":"Partly cloudy","_id":"HW9TcNtlwggWtb4U"}
 {"dataLoc":"Paris","dataTemp":"13°","dataWind":"Wind   15.1 km/h","dataHumidity":"Humidity   82 %","dataStatus":"Overcast","_id":"KA32fyjlLsZiId29"}
+{"dataLoc":"London","dataTemp":"12°","dataWind":"Wind   13 km/h","dataHumidity":"Humidity   77 %","dataStatus":"Partly cloudy","_id":"dWAp8vp7gMTjTvXL"}
+{"dataLoc":"San Francisco","dataTemp":"10.6°","dataWind":"Wind   20.2 km/h","dataHumidity":"Humidity   83 %","dataStatus":"Overcast","_id":"g8Iq5m1eq5PxDCwa"}
 {"dataLoc":"Moscow","dataTemp":"13°","dataWind":"Wind   3.6 km/h","dataHumidity":"Humidity   33 %","dataStatus":"Sunny","_id":"qXjjsZY9ArEb2vB2"}
 {"dataLoc":"Rasht","dataTemp":"18°","dataWind":"Wind   11.2 km/h","dataHumidity":"Humidity   73 %","dataStatus":"Partly cloudy","_id":"u3vlyMYQGhpVKncN"}
-{"dataLoc":"San Francisco","dataTemp":"10.6°","dataWind":"Wind   20.2 km/h","dataHumidity":"Humidity   83 %","dataStatus":"Overcast","_id":"g8Iq5m1eq5PxDCwa"}
-{"dataLoc":"London","dataTemp":"12°","dataWind":"Wind   13 km/h","dataHumidity":"Humidity   77 %","dataStatus":"Partly cloudy","_id":"dWAp8vp7gMTjTvXL"}
