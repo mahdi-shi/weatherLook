@@ -146,12 +146,6 @@
     opacity: 0;
 }
 
-@media only screen and (max-width: 500px) {
-    .con .introductionPage .introLocSelector {
-        transform: translate(12%, 10px);
-    }
-  }
-
 @keyframes showIntoSearch {
     0% {
         top: 0px;
@@ -832,4 +826,21 @@
 
 .con .forecast .favoritesPannel span:hover svg {
     fill: white;
+}
+
+/*responsive with media stuff*/
+
+@media only screen and (max-width: 500px) {
+    .con .introductionPage .introLocSelector {
+        transform: translate(12%, 10px);
+    }
+
+    .con .forecast .navBar .inputBox input {
+        width: 90%;
+        margin-left: -0px;
+    }
+
+    .con .forecast .navBar .inputBox #locSearch2 {
+        margin-left: -20px;
+    }
 }
