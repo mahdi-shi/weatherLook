@@ -3,6 +3,10 @@ import axios from 'axios';
 import cors from 'cors'
 import fetch from 'node-fetch';
 import Datastore from 'nedb'
+import dotenv from 'dotenv'
+
+dotenv.config()
+console.log(process.env)
 
 const app = express();
 
@@ -26,7 +30,7 @@ app.get("/weather/:latlon", async (req, res) => {
   const Lat = latlong[0];
   const Long = latlong[1];
 
-  const weatherResponse = await fetch(`https://api.weatherapi.com/v1/forecast.json?key=7f4183b49af04a2e95e120051231103&q=${Lat},${Long}&days=7`)
+  const weatherResponse = await fetch(`https://api.weatherapi.com/v1/forecast.json?key=${process.env.API_KEY}&q=${Lat},${Long}&days=7`)
     .catch(err => console.error("something went wrongoooooooo" + err));
   const weatherData = await weatherResponse.json();
 
