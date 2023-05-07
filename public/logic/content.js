@@ -34,29 +34,29 @@ document.querySelector("#getLocationText").addEventListener("click", async () =>
       visibilityText.textContent = "Visibility   " + wData.weather.current.vis_km + " km";
       humidityText.textContent = "Humidity   " + wData.weather.current.humidity + " %";
       feelsLike.textContent = "Feels like  " + wData.weather.current.feelslike_c;
-        
+
       try {
         airQualityText.textContent = "Air quality   " + wData.air_quality.results[0].measurements[0].value;
       }
       catch {
         console.log('air quality data did not found in this location');
       }
-    
+
       // saving data to mark box
-    
+
       dataLoc = wData.weather.location.name;
       dataTemp = wData.weather.current.temp_c + "°";
       dataWind = "Wind   " + wData.weather.current.wind_kph + " km/h";
       dataHumidity = "Humidity   " + wData.weather.current.humidity + " %";
       dataStatus = wData.weather.current.condition.text;
-    
+
       // show all data in for reload mark box
-    
+
       const getResponseData = await fetch("/getApi");
       const getDataBase = await getResponseData.json()
-    
+
       for (let items in getDataBase.allData) {
-    
+
         let saveLi = document.createElement("li");
         let saveLiLoc = document.createElement("p");
         let saveLiTemp = document.createElement("p");
@@ -69,36 +69,36 @@ document.querySelector("#getLocationText").addEventListener("click", async () =>
         saveLiWind.classList.add("saveLiParaStyle")
         saveLiHumidity.classList.add("saveLiParaStyle")
         saveLiCondition.classList.add("saveLiParaStyle")
-    
+
         let saveLiLocText = getDataBase.allData[items].dataLoc;
         let saveLiTempText = getDataBase.allData[items].dataTemp + "°";
         let saveLiWindText = "Wind  " + getDataBase.allData[items].dataWind;
         let saveLiHumidityText = "Humidity  " + getDataBase.allData[items].dataHumidity;
         let saveLiConditionText = getDataBase.allData[items].dataStatus;
-    
+
         saveLiLoc.textContent = saveLiLocText;
         saveLiTemp.textContent = saveLiTempText;
         saveLiWind.textContent = saveLiWindText;
         saveLiHumidity.textContent = saveLiHumidityText;
         saveLiCondition.textContent = saveLiConditionText;
-    
+
         saveLi.appendChild(saveLiLoc);
         saveLi.appendChild(saveLiTemp);
         saveLi.appendChild(saveLiWind);
         saveLi.appendChild(saveLiHumidity);
         saveLi.appendChild(saveLiCondition);
-    
+
         saveBoxesList.appendChild(saveLi);
       }
-    
+
       marker.setLatLng([wData.weather.location.lat, wData.weather.location.lon]);
       map.setView([wData.weather.location.lat, wData.weather.location.lon], 11)
       const popupContent = `today has a ${wData.weather.current.condition.text} weather and temperature feels like ${wData.weather.current.temp_c}° C an the wind is ${wData.weather.current.wind_kph} km/h ,visibility is ${wData.weather.current.vis_km} km and humidity feels like ${wData.weather.current.humidity} %`;
       marker.bindPopup(popupContent)
-    
+
       function forcastFor3Day() {
         forTenDaysBoxTds[1].textContent = wData.weather.forecast.forecastday[0].day.condition.text;
-    
+
         console.log(forTenDaysBoxTds[1].innerHTML);
         switch (forTenDaysBoxTds[1].innerHTML) {
           case "Patchy rain possible": {
@@ -208,7 +208,7 @@ document.querySelector("#getLocationText").addEventListener("click", async () =>
             break;
           }
         }
-    
+
         let weekDay1 = wData.weather.forecast.forecastday[0].date;
         const d1 = new Date(weekDay1);
         let day1 = d1.getDay()
@@ -245,7 +245,7 @@ document.querySelector("#getLocationText").addEventListener("click", async () =>
           }
         }
         forTenDaysBoxTds[2].textContent = weekDayText1;
-    
+
         switch (forTenDaysBoxTds[4].innerHTML) {
           case "Patchy rain possible": {
             forTenDaysBoxTds[3].innerHTML = `<svg class="mx-2" xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="white" class="bi bi-cloud-rain" viewBox="0 0 16 16">
@@ -354,12 +354,12 @@ document.querySelector("#getLocationText").addEventListener("click", async () =>
             break;
           }
         }
-    
+
         forTenDaysBoxTds[3].innerHTML = `<svg class="mx-2" xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="white" class="bi bi-brightness-low" viewBox="0 0 16 16">
             <path d="M8 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm0 1a4 4 0 1 0 0-8 4 4 0 0 0 0 8zm.5-9.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zm0 11a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zm5-5a.5.5 0 1 1 0-1 .5.5 0 0 1 0 1zm-11 0a.5.5 0 1 1 0-1 .5.5 0 0 1 0 1zm9.743-4.036a.5.5 0 1 1-.707-.707.5.5 0 0 1 .707.707zm-7.779 7.779a.5.5 0 1 1-.707-.707.5.5 0 0 1 .707.707zm7.072 0a.5.5 0 1 1 .707-.707.5.5 0 0 1-.707.707zM3.757 4.464a.5.5 0 1 1 .707-.707.5.5 0 0 1-.707.707z"/>
           </svg>` + wData.weather.forecast.forecastday[1].day.avgtemp_c + "° C";
         forTenDaysBoxTds[4].textContent = wData.weather.forecast.forecastday[1].day.condition.text;
-    
+
         let weekDay2 = wData.weather.forecast.forecastday[1].date;
         const d2 = new Date(weekDay2);
         let day2 = d2.getDay()
@@ -396,9 +396,9 @@ document.querySelector("#getLocationText").addEventListener("click", async () =>
           }
         }
         forTenDaysBoxTds[5].textContent = weekDayText2;
-    
+
         degree.addEventListener("click", () => {
-    
+
           if (degreeStatus == false) {
             degree.textContent = "F"
             tempText.innerHTML = wData.weather.current.temp_f + "°";
@@ -1096,7 +1096,7 @@ document.querySelector("#getLocationText").addEventListener("click", async () =>
             degreeStatus = false;
           }
         })
-    
+
         switch (forTenDaysBoxTds[7].innerHTML) {
           case "Patchy rain possible": {
             forTenDaysBoxTds[6].innerHTML = `<svg class="mx-2" xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="white" class="bi bi-cloud-rain" viewBox="0 0 16 16">
@@ -1205,12 +1205,12 @@ document.querySelector("#getLocationText").addEventListener("click", async () =>
             break;
           }
         }
-    
+
         forTenDaysBoxTds[6].innerHTML = `<svg class="mx-2" xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="white" class="bi bi-brightness-low" viewBox="0 0 16 16">
             <path d="M8 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm0 1a4 4 0 1 0 0-8 4 4 0 0 0 0 8zm.5-9.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zm0 11a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zm5-5a.5.5 0 1 1 0-1 .5.5 0 0 1 0 1zm-11 0a.5.5 0 1 1 0-1 .5.5 0 0 1 0 1zm9.743-4.036a.5.5 0 1 1-.707-.707.5.5 0 0 1 .707.707zm-7.779 7.779a.5.5 0 1 1-.707-.707.5.5 0 0 1 .707.707zm7.072 0a.5.5 0 1 1 .707-.707.5.5 0 0 1-.707.707zM3.757 4.464a.5.5 0 1 1 .707-.707.5.5 0 0 1-.707.707z"/>
           </svg>` + wData.weather.forecast.forecastday[2].day.avgtemp_c + "° C";
         forTenDaysBoxTds[7].textContent = wData.weather.forecast.forecastday[2].day.condition.text;
-    
+
         let weekDay3 = wData.weather.forecast.forecastday[2].date;
         const d3 = new Date(weekDay3);
         let day3 = d3.getDay()
@@ -1248,9 +1248,9 @@ document.querySelector("#getLocationText").addEventListener("click", async () =>
         }
         forTenDaysBoxTds[8].textContent = weekDayText3;
       }
-    
+
       //merging data to the hourly list 
-    
+
       for (let i = 0; i < hourlyHours.length; i++) {
         switch (i) {
           case 0: {
@@ -1315,7 +1315,7 @@ document.querySelector("#getLocationText").addEventListener("click", async () =>
               </svg`
                 break;
               }
-    
+
               case "Light drizzle": {
                 wIconhourly[i].innerHTML = `<svg class="mx-2" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="white" class="bi bi-cloud-drizzle" viewBox="0 0 16 16">
                 <path d="M4.158 12.025a.5.5 0 0 1 .316.633l-.5 1.5a.5.5 0 0 1-.948-.316l.5-1.5a.5.5 0 0 1 .632-.317zm6 0a.5.5 0 0 1 .316.633l-.5 1.5a.5.5 0 0 1-.948-.316l.5-1.5a.5.5 0 0 1 .632-.317zm-3.5 1.5a.5.5 0 0 1 .316.633l-.5 1.5a.5.5 0 0 1-.948-.316l.5-1.5a.5.5 0 0 1 .632-.317zm6 0a.5.5 0 0 1 .316.633l-.5 1.5a.5.5 0 1 1-.948-.316l.5-1.5a.5.5 0 0 1 .632-.317zm.747-8.498a5.001 5.001 0 0 0-9.499-1.004A3.5 3.5 0 1 0 3.5 11H13a3 3 0 0 0 .405-5.973zM8.5 2a4 4 0 0 1 3.976 3.555.5.5 0 0 0 .5.445H13a2 2 0 0 1 0 4H3.5a2.5 2.5 0 1 1 .605-4.926.5.5 0 0 0 .596-.329A4.002 4.002 0 0 1 8.5 2z"/>
@@ -1371,14 +1371,14 @@ document.querySelector("#getLocationText").addEventListener("click", async () =>
                 break;
               }
             }
-    
+
             break;
           }
           case 1: {
             hourlyHours[i].innerHTML = wData.weather.forecast.forecastday[0].hour[6].time.slice(11, 16);
             hourlyExplainings[i].innerHTML = wData.weather.forecast.forecastday[0].hour[6].condition.text
             hourlyTemps[i].innerHTML = wData.weather.forecast.forecastday[0].hour[6].temp_c + "° C"
-    
+
             switch (hourlyExplainings[i].innerHTML) {
               case "Patchy rain possible": {
                 wIconhourly[i].innerHTML = `<svg class="mx-2" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="white" class="bi bi-cloud-rain" viewBox="0 0 16 16">
@@ -1437,7 +1437,7 @@ document.querySelector("#getLocationText").addEventListener("click", async () =>
               </svg`
                 break;
               }
-    
+
               case "Light drizzle": {
                 wIconhourly[i].innerHTML = `<svg class="mx-2" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="white" class="bi bi-cloud-drizzle" viewBox="0 0 16 16">
                 <path d="M4.158 12.025a.5.5 0 0 1 .316.633l-.5 1.5a.5.5 0 0 1-.948-.316l.5-1.5a.5.5 0 0 1 .632-.317zm6 0a.5.5 0 0 1 .316.633l-.5 1.5a.5.5 0 0 1-.948-.316l.5-1.5a.5.5 0 0 1 .632-.317zm-3.5 1.5a.5.5 0 0 1 .316.633l-.5 1.5a.5.5 0 0 1-.948-.316l.5-1.5a.5.5 0 0 1 .632-.317zm6 0a.5.5 0 0 1 .316.633l-.5 1.5a.5.5 0 1 1-.948-.316l.5-1.5a.5.5 0 0 1 .632-.317zm.747-8.498a5.001 5.001 0 0 0-9.499-1.004A3.5 3.5 0 1 0 3.5 11H13a3 3 0 0 0 .405-5.973zM8.5 2a4 4 0 0 1 3.976 3.555.5.5 0 0 0 .5.445H13a2 2 0 0 1 0 4H3.5a2.5 2.5 0 1 1 .605-4.926.5.5 0 0 0 .596-.329A4.002 4.002 0 0 1 8.5 2z"/>
@@ -1493,14 +1493,14 @@ document.querySelector("#getLocationText").addEventListener("click", async () =>
                 break;
               }
             }
-    
+
             break;
           }
           case 2: {
             hourlyHours[i].innerHTML = wData.weather.forecast.forecastday[0].hour[9].time.slice(11, 16);
             hourlyExplainings[i].innerHTML = wData.weather.forecast.forecastday[0].hour[9].condition.text
             hourlyTemps[i].innerHTML = wData.weather.forecast.forecastday[0].hour[9].temp_c + "° C"
-    
+
             switch (hourlyExplainings[i].innerHTML) {
               case "Patchy rain possible": {
                 wIconhourly[i].innerHTML = `<svg class="mx-2" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="white" class="bi bi-cloud-rain" viewBox="0 0 16 16">
@@ -1559,7 +1559,7 @@ document.querySelector("#getLocationText").addEventListener("click", async () =>
               </svg`
                 break;
               }
-    
+
               case "Light drizzle": {
                 wIconhourly[i].innerHTML = `<svg class="mx-2" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="white" class="bi bi-cloud-drizzle" viewBox="0 0 16 16">
                 <path d="M4.158 12.025a.5.5 0 0 1 .316.633l-.5 1.5a.5.5 0 0 1-.948-.316l.5-1.5a.5.5 0 0 1 .632-.317zm6 0a.5.5 0 0 1 .316.633l-.5 1.5a.5.5 0 0 1-.948-.316l.5-1.5a.5.5 0 0 1 .632-.317zm-3.5 1.5a.5.5 0 0 1 .316.633l-.5 1.5a.5.5 0 0 1-.948-.316l.5-1.5a.5.5 0 0 1 .632-.317zm6 0a.5.5 0 0 1 .316.633l-.5 1.5a.5.5 0 1 1-.948-.316l.5-1.5a.5.5 0 0 1 .632-.317zm.747-8.498a5.001 5.001 0 0 0-9.499-1.004A3.5 3.5 0 1 0 3.5 11H13a3 3 0 0 0 .405-5.973zM8.5 2a4 4 0 0 1 3.976 3.555.5.5 0 0 0 .5.445H13a2 2 0 0 1 0 4H3.5a2.5 2.5 0 1 1 .605-4.926.5.5 0 0 0 .596-.329A4.002 4.002 0 0 1 8.5 2z"/>
@@ -1621,7 +1621,7 @@ document.querySelector("#getLocationText").addEventListener("click", async () =>
             hourlyHours[i].innerHTML = wData.weather.forecast.forecastday[0].hour[12].time.slice(11, 16);
             hourlyExplainings[i].innerHTML = wData.weather.forecast.forecastday[0].hour[12].condition.text
             hourlyTemps[i].innerHTML = wData.weather.forecast.forecastday[0].hour[12].temp_c + "° C"
-    
+
             switch (hourlyExplainings[i].innerHTML) {
               case "Patchy rain possible": {
                 wIconhourly[i].innerHTML = `<svg class="mx-2" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="white" class="bi bi-cloud-rain" viewBox="0 0 16 16">
@@ -1680,7 +1680,7 @@ document.querySelector("#getLocationText").addEventListener("click", async () =>
               </svg`
                 break;
               }
-    
+
               case "Light drizzle": {
                 wIconhourly[i].innerHTML = `<svg class="mx-2" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="white" class="bi bi-cloud-drizzle" viewBox="0 0 16 16">
                 <path d="M4.158 12.025a.5.5 0 0 1 .316.633l-.5 1.5a.5.5 0 0 1-.948-.316l.5-1.5a.5.5 0 0 1 .632-.317zm6 0a.5.5 0 0 1 .316.633l-.5 1.5a.5.5 0 0 1-.948-.316l.5-1.5a.5.5 0 0 1 .632-.317zm-3.5 1.5a.5.5 0 0 1 .316.633l-.5 1.5a.5.5 0 0 1-.948-.316l.5-1.5a.5.5 0 0 1 .632-.317zm6 0a.5.5 0 0 1 .316.633l-.5 1.5a.5.5 0 1 1-.948-.316l.5-1.5a.5.5 0 0 1 .632-.317zm.747-8.498a5.001 5.001 0 0 0-9.499-1.004A3.5 3.5 0 1 0 3.5 11H13a3 3 0 0 0 .405-5.973zM8.5 2a4 4 0 0 1 3.976 3.555.5.5 0 0 0 .5.445H13a2 2 0 0 1 0 4H3.5a2.5 2.5 0 1 1 .605-4.926.5.5 0 0 0 .596-.329A4.002 4.002 0 0 1 8.5 2z"/>
@@ -1742,7 +1742,7 @@ document.querySelector("#getLocationText").addEventListener("click", async () =>
             hourlyHours[i].innerHTML = wData.weather.forecast.forecastday[0].hour[15].time.slice(11, 16);
             hourlyExplainings[i].innerHTML = wData.weather.forecast.forecastday[0].hour[15].condition.text
             hourlyTemps[i].innerHTML = wData.weather.forecast.forecastday[0].hour[15].temp_c + "° C"
-    
+
             switch (hourlyExplainings[i].innerHTML) {
               case "Patchy rain possible": {
                 wIconhourly[i].innerHTML = `<svg class="mx-2" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="white" class="bi bi-cloud-rain" viewBox="0 0 16 16">
@@ -1801,7 +1801,7 @@ document.querySelector("#getLocationText").addEventListener("click", async () =>
               </svg`
                 break;
               }
-    
+
               case "Light drizzle": {
                 wIconhourly[i].innerHTML = `<svg class="mx-2" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="white" class="bi bi-cloud-drizzle" viewBox="0 0 16 16">
                 <path d="M4.158 12.025a.5.5 0 0 1 .316.633l-.5 1.5a.5.5 0 0 1-.948-.316l.5-1.5a.5.5 0 0 1 .632-.317zm6 0a.5.5 0 0 1 .316.633l-.5 1.5a.5.5 0 0 1-.948-.316l.5-1.5a.5.5 0 0 1 .632-.317zm-3.5 1.5a.5.5 0 0 1 .316.633l-.5 1.5a.5.5 0 0 1-.948-.316l.5-1.5a.5.5 0 0 1 .632-.317zm6 0a.5.5 0 0 1 .316.633l-.5 1.5a.5.5 0 1 1-.948-.316l.5-1.5a.5.5 0 0 1 .632-.317zm.747-8.498a5.001 5.001 0 0 0-9.499-1.004A3.5 3.5 0 1 0 3.5 11H13a3 3 0 0 0 .405-5.973zM8.5 2a4 4 0 0 1 3.976 3.555.5.5 0 0 0 .5.445H13a2 2 0 0 1 0 4H3.5a2.5 2.5 0 1 1 .605-4.926.5.5 0 0 0 .596-.329A4.002 4.002 0 0 1 8.5 2z"/>
@@ -1857,14 +1857,14 @@ document.querySelector("#getLocationText").addEventListener("click", async () =>
                 break;
               }
             }
-    
+
             break;
           }
           case 5: {
             hourlyHours[i].innerHTML = wData.weather.forecast.forecastday[0].hour[18].time.slice(11, 16);
             hourlyExplainings[i].innerHTML = wData.weather.forecast.forecastday[0].hour[18].condition.text
             hourlyTemps[i].innerHTML = wData.weather.forecast.forecastday[0].hour[18].temp_c + "° C"
-    
+
             switch (hourlyExplainings[i].innerHTML) {
               case "Patchy rain possible": {
                 wIconhourly[i].innerHTML = `<svg class="mx-2" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="white" class="bi bi-cloud-rain" viewBox="0 0 16 16">
@@ -1923,7 +1923,7 @@ document.querySelector("#getLocationText").addEventListener("click", async () =>
               </svg`
                 break;
               }
-    
+
               case "Light drizzle": {
                 wIconhourly[i].innerHTML = `<svg class="mx-2" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="white" class="bi bi-cloud-drizzle" viewBox="0 0 16 16">
                 <path d="M4.158 12.025a.5.5 0 0 1 .316.633l-.5 1.5a.5.5 0 0 1-.948-.316l.5-1.5a.5.5 0 0 1 .632-.317zm6 0a.5.5 0 0 1 .316.633l-.5 1.5a.5.5 0 0 1-.948-.316l.5-1.5a.5.5 0 0 1 .632-.317zm-3.5 1.5a.5.5 0 0 1 .316.633l-.5 1.5a.5.5 0 0 1-.948-.316l.5-1.5a.5.5 0 0 1 .632-.317zm6 0a.5.5 0 0 1 .316.633l-.5 1.5a.5.5 0 1 1-.948-.316l.5-1.5a.5.5 0 0 1 .632-.317zm.747-8.498a5.001 5.001 0 0 0-9.499-1.004A3.5 3.5 0 1 0 3.5 11H13a3 3 0 0 0 .405-5.973zM8.5 2a4 4 0 0 1 3.976 3.555.5.5 0 0 0 .5.445H13a2 2 0 0 1 0 4H3.5a2.5 2.5 0 1 1 .605-4.926.5.5 0 0 0 .596-.329A4.002 4.002 0 0 1 8.5 2z"/>
@@ -1985,7 +1985,7 @@ document.querySelector("#getLocationText").addEventListener("click", async () =>
             hourlyHours[i].innerHTML = wData.weather.forecast.forecastday[0].hour[21].time.slice(11, 16);
             hourlyExplainings[i].innerHTML = wData.weather.forecast.forecastday[0].hour[21].condition.text
             hourlyTemps[i].innerHTML = wData.weather.forecast.forecastday[0].hour[21].temp_c + "° C"
-    
+
             switch (hourlyExplainings[i].innerHTML) {
               case "Patchy rain possible": {
                 wIconhourly[i].innerHTML = `<svg class="mx-2" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="white" class="bi bi-cloud-rain" viewBox="0 0 16 16">
@@ -2044,7 +2044,7 @@ document.querySelector("#getLocationText").addEventListener("click", async () =>
               </svg`
                 break;
               }
-    
+
               case "Light drizzle": {
                 wIconhourly[i].innerHTML = `<svg class="mx-2" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="white" class="bi bi-cloud-drizzle" viewBox="0 0 16 16">
                 <path d="M4.158 12.025a.5.5 0 0 1 .316.633l-.5 1.5a.5.5 0 0 1-.948-.316l.5-1.5a.5.5 0 0 1 .632-.317zm6 0a.5.5 0 0 1 .316.633l-.5 1.5a.5.5 0 0 1-.948-.316l.5-1.5a.5.5 0 0 1 .632-.317zm-3.5 1.5a.5.5 0 0 1 .316.633l-.5 1.5a.5.5 0 0 1-.948-.316l.5-1.5a.5.5 0 0 1 .632-.317zm6 0a.5.5 0 0 1 .316.633l-.5 1.5a.5.5 0 1 1-.948-.316l.5-1.5a.5.5 0 0 1 .632-.317zm.747-8.498a5.001 5.001 0 0 0-9.499-1.004A3.5 3.5 0 1 0 3.5 11H13a3 3 0 0 0 .405-5.973zM8.5 2a4 4 0 0 1 3.976 3.555.5.5 0 0 0 .5.445H13a2 2 0 0 1 0 4H3.5a2.5 2.5 0 1 1 .605-4.926.5.5 0 0 0 .596-.329A4.002 4.002 0 0 1 8.5 2z"/>
@@ -2106,7 +2106,7 @@ document.querySelector("#getLocationText").addEventListener("click", async () =>
             hourlyHours[i].innerHTML = wData.weather.forecast.forecastday[0].hour[23].time.slice(11, 16);
             hourlyExplainings[i].innerHTML = wData.weather.forecast.forecastday[0].hour[23].condition.text
             hourlyTemps[i].innerHTML = wData.weather.forecast.forecastday[0].hour[23].temp_c + "° C"
-    
+
             switch (hourlyExplainings[i].innerHTML) {
               case "Patchy rain possible": {
                 wIconhourly[i].innerHTML = `<svg class="mx-2" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="white" class="bi bi-cloud-rain" viewBox="0 0 16 16">
@@ -2165,7 +2165,7 @@ document.querySelector("#getLocationText").addEventListener("click", async () =>
               </svg`
                 break;
               }
-    
+
               case "Light drizzle": {
                 wIconhourly[i].innerHTML = `<svg class="mx-2" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="white" class="bi bi-cloud-drizzle" viewBox="0 0 16 16">
                 <path d="M4.158 12.025a.5.5 0 0 1 .316.633l-.5 1.5a.5.5 0 0 1-.948-.316l.5-1.5a.5.5 0 0 1 .632-.317zm6 0a.5.5 0 0 1 .316.633l-.5 1.5a.5.5 0 0 1-.948-.316l.5-1.5a.5.5 0 0 1 .632-.317zm-3.5 1.5a.5.5 0 0 1 .316.633l-.5 1.5a.5.5 0 0 1-.948-.316l.5-1.5a.5.5 0 0 1 .632-.317zm6 0a.5.5 0 0 1 .316.633l-.5 1.5a.5.5 0 1 1-.948-.316l.5-1.5a.5.5 0 0 1 .632-.317zm.747-8.498a5.001 5.001 0 0 0-9.499-1.004A3.5 3.5 0 1 0 3.5 11H13a3 3 0 0 0 .405-5.973zM8.5 2a4 4 0 0 1 3.976 3.555.5.5 0 0 0 .5.445H13a2 2 0 0 1 0 4H3.5a2.5 2.5 0 1 1 .605-4.926.5.5 0 0 0 .596-.329A4.002 4.002 0 0 1 8.5 2z"/>
@@ -2225,7 +2225,7 @@ document.querySelector("#getLocationText").addEventListener("click", async () =>
           }
         }
       }
-    
+
       degree.addEventListener("click", () => {
         if (degreeStatus == false) {
           for (let i = 0; i < hourlyTemps.length; i++) {
@@ -2304,7 +2304,7 @@ document.querySelector("#getLocationText").addEventListener("click", async () =>
           }
         }
       })
-    
+
       forcastFor3Day();
       imageStatusIconShow();
     });
@@ -11784,24 +11784,43 @@ let pos = 0
 arrowRightBtn.addEventListener("click", () => {
   pos += -130;
 
+  if (document.body.clientWidth < 440) {
+    if (pos == -780) {
+      arrowRightBtn.style.opacity = "0";
+      setTimeout(() => {
+        arrowRightBtn.style.display = "none";
+      }, 100);
+    }
+    else {
+      hoursList.style.marginLeft = pos;
+      arrowLeftBtn.style.display = "flex"
+      arrowRightBtn.style.display = "flex";
+      setTimeout(() => {
+        arrowRightBtn.style.opacity = "1";
+      }, 100);
+    }
+  }
+  else{
+    if (pos == -390) {
+      arrowRightBtn.style.opacity = "0";
+      setTimeout(() => {
+        arrowRightBtn.style.display = "none";
+      }, 100);
+    }
+    else {
+      hoursList.style.marginLeft = pos;
+      arrowLeftBtn.style.display = "flex"
+      arrowRightBtn.style.display = "flex";
+      setTimeout(() => {
+        arrowRightBtn.style.opacity = "1";
+      }, 100);
+    }
+  }
+
   setTimeout(() => {
     arrowLeftBtn.style.opacity = "1"
   }, 100);
   hoursList.style.marginLeft = pos + "px"
-  if (pos == -390) {
-    arrowRightBtn.style.opacity = "0";
-    setTimeout(() => {
-      arrowRightBtn.style.display = "none";
-    }, 100);
-  }
-  else {
-    hoursList.style.marginLeft = pos;
-    arrowLeftBtn.style.display = "flex"
-    arrowRightBtn.style.display = "flex";
-    setTimeout(() => {
-      arrowRightBtn.style.opacity = "1";
-    }, 100);
-  }
   console.log(pos);
 })
 
@@ -11837,7 +11856,20 @@ let moveSavePannelStatus = false;
 const markBoxBtn = document.querySelector("#markBoxBtn");
 
 moveFavoritePannelBtn.addEventListener("click", () => {
-
+if(document.body.clientWidth < 450){
+  if (moveSavePannelStatus == false) {
+    favoritesPannel.style.transform = "translateX(113%)"
+    moveSavePannelStatus = true;
+  }
+  else {
+    favoritesPannel.style.transform = "translateX(142%)"
+    moveSavePannelStatus = false;
+  }
+  markBoxBtn.addEventListener("click", () => {
+    favoritesPannel.style.transform = "translateX(45%)"
+  })
+}
+else{
   if (moveSavePannelStatus == false) {
     favoritesPannel.style.transform = "translateX(113%)"
     moveSavePannelStatus = true;
@@ -11846,6 +11878,11 @@ moveFavoritePannelBtn.addEventListener("click", () => {
     favoritesPannel.style.transform = "translateX(121%)"
     moveSavePannelStatus = false;
   }
+
+  markBoxBtn.addEventListener("click", () => {
+    favoritesPannel.style.transform = "translateX(15%)"
+  })
+}
 
   //show forecast from marks on click event
 
@@ -14227,12 +14264,3 @@ deleteMarksBtn.addEventListener("click", async () => {
   //remove from DataBase
   const deleteResponse = await fetch("/deleteData");
 })
-
-/*let marks = document.querySelectorAll(".saveLiStyle");
-
-console.log(marks.length);
-for(let i = 0;i < marks.length;i++){
-  marks[i].addEventListener("click", () => {
-    console.log("hi");
-  })
-}*/

@@ -746,6 +746,11 @@
     color: rgb(255, 255, 255);
 }
 
+.con .forecast .favoritesPannel .saveBoxesList{
+    overflow-y: scroll;
+    height: 80vh;
+} 
+
 .con .forecast .favoritesPannel .saveBoxesList li {
     width: 200px;
     height: 200px;
@@ -828,12 +833,25 @@
     fill: white;
 }
 
+.con .forecast .lastWord {
+    color: rgb(160, 160, 160);
+    text-align: center;
+    position: absolute;
+    top: 365%;
+}
+
 /*responsive with media stuff*/
 
 @media only screen and (max-width: 500px) {
     .con .introductionPage .introLocSelector {
         transform: translate(12%, 10px);
     }
+
+    .con .forecast .favoritesPannel .saveBoxesList{
+        overflow-y: scroll;
+        height: 70vh;
+        margin-left: -80px;
+    } 
 
     .con .forecast .navBar .inputBox input {
         width: 90%;
@@ -970,6 +988,21 @@
         }
     }
 
+    .con .forecast .hourly {
+        margin-left: 36px;
+    }
+
+    .con .forecast .hourly #arrowRight {
+        left: 90%;
+    }
+
+    .con .forecast .favoritesPannel {
+        transform: translateX(calc(130% + 50px));
+    }
+
+    .con .forecast .mapTitle {
+        margin-top: -760px;
+    }
 }
 
 @media only screen and (max-width: 400px) {
